@@ -1,0 +1,129 @@
+#####################################
+## Light ambiances.                ##
+#####################################
+
+# Cinema ambiance.
+light_ambiance_cinema:
+  alias: Cinema light ambiance
+  sequence:
+    - alias: Fan lights on
+      service: light.turn_on
+      data:
+        entity_id: light.ventilateur
+        brightness: 64
+        color_temp: 436
+    - alias: Kitchen lights on
+      service: light.turn_on
+      data:
+        entity_id: light.cuisine
+        brightness: 64
+        color_temp: 436
+    - alias: Desk leds on
+      service: light.turn_on
+      data:
+        entity_id: light.desk_leds
+        brightness: 255
+        xy_color:
+          - 0.166
+          - 0.268
+    - alias: Send notification to TV
+      service: notify.lg_tv
+      data:
+        message: 'Bon film !'
+
+# Cozy ambiance.
+light_ambiance_cozy:
+  alias: Cozy light ambiance
+  sequence:
+
+    - alias: Fan 1 light in orange
+      service: light.turn_on
+      data:
+        entity_id: light.fan_1
+        brightness: 64
+        xy_color:
+          - 0.581
+          - 0.387
+    - alias: Fan 2 light in red
+      service: light.turn_on
+      data:
+        entity_id: light.fan_2
+        brightness: 64
+        xy_color:
+          - 0.639
+          - 0.336
+    - alias: Fan 3 light in orange
+      service: light.turn_on
+      data:
+        entity_id: light.fan_3
+        brightness: 64
+        xy_color:
+          - 0.581
+          - 0.387
+    - alias: Kitchen lights on
+      service: light.turn_on
+      data:
+        entity_id: light.cuisine
+        brightness: 64
+        color_temp: 454
+    - alias: Desk leds in red
+      service: light.turn_on
+      data:
+        entity_id: light.desk_leds
+        brightness: 255
+        xy_color:
+          - 0.701
+          - 0.299
+
+# Desk focus ambiance.
+light_ambiance_desk_focus:
+  alias: Desk focus light ambiance
+  sequence:
+    - alias: Desk lamp on
+      service: switch.turn_on
+      data:
+        entity_id: switch.desk_lamp
+    - alias: Desk leds in blue
+      service: light.turn_on
+      data:
+        entity_id: light.desk_leds
+        brightness: 255
+        xy_color:
+          - 0.166
+          - 0.268
+
+# Red light ambiance.
+light_ambiance_red:
+  alias: Red light ambiance
+  sequence:
+    - alias: Fan lights in red
+      service: light.turn_on
+      data:
+        entity_id: light.ventilateur
+        brightness: 255
+        xy_color:
+          - 0.701
+          - 0.299
+    - alias: Desk leds in red
+      service: light.turn_on
+      data:
+        entity_id: light.desk_leds
+        brightness: 255
+        xy_color:
+          - 0.701
+          - 0.299
+
+
+#####################################
+## Other scripts.                  ##
+#####################################
+
+# Turn off home lights.
+home_off:
+  alias: Turn off home lights
+  sequence:
+    - alias: Turn off home lights
+      service: homeassistant.turn_off
+      data:
+        entity_id:
+          - group.home

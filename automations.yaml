@@ -1,0 +1,144 @@
+#####################################
+## Motion sensors.                 ##
+#####################################
+
+# LightLevel 1 - Movement.
+#   -> Turn ON Bathroom lights.
+- id: '1566598419162'
+  alias: Turn on bathroom lights on move
+  trigger:
+  - entity_id: binary_sensor.lightlevel_1
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - alias: ''
+    data: {}
+    service: homeassistant.turn_on
+    entity_id: group.bathroom
+
+# LightLevel 1 - No movement during 10 minutes.
+#   -> Turn OFF Bathroom lights.
+- alias: Turn off bathroom lights 10 minutes after last movement
+  trigger:
+    entity_id: binary_sensor.lightlevel_1
+    platform: state
+    to: 'off'
+    for:
+      minutes: 10
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.bathroom
+
+
+#####################################
+## Switches.                       ##
+#####################################
+
+# Switch 1 - Simple click.
+#   -> Turn OFF Home lights.
+- id: '1566598982550'
+  alias: Home off on switch click
+  trigger:
+  - event_data:
+      event: 1002
+      id: switch_1
+    event_type: deconz_event
+    platform: event
+  condition: []
+  action:
+  - service: script.home_off
+
+# Switch 1 - Double click.
+#   -> Turn OFF Redfire.
+- id: '1566598982551'
+  alias: Redfire off on switch double click
+  trigger:
+  - event_data:
+      event: 1004
+      id: switch_1
+    event_type: deconz_event
+    platform: event
+  condition: []
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.redfire
+
+
+#####################################
+## Flood detectors.                ##
+#####################################
+
+#FIXME.
+
+
+#####################################
+## Trackers.                       ##
+#####################################
+
+# Rabeb is Home.
+#   -> Notify Francois iPhone.
+- id: '1564447488079'
+  alias: Rabeb is home
+  trigger:
+  - entity_id: device_tracker.iphone_de_rabeb
+    from: not_home
+    platform: state
+    to: home
+  condition: []
+  action:
+  - alias: ''
+    data:
+      message: iPhone de Rabeb connecté au Wi-Fi
+      title: Rabeb est à la maison
+    service: notify.ios_iphone_de_francois
+
+
+#####################################
+## Other automations.              ##
+#####################################
+
+# Adjust TV Volume on volume selection.
+- id: '1564963530903'
+  alias: Adjust TV Volume
+  trigger:
+    platform: state
+    entity_id: input_number.tv_volume
+  condition: []
+  action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id: media_player.lg_tv
+      volume_level: '{{ trigger.to_state.state | float }}'
+
+# Adjust TV Channel on channel selection.
+- id: '1564964218369'
+  alias: Adjust TV Channel
+  trigger:
+  - entity_id: input_select.tv_channel
+    platform: state
+  condition: []
+  action:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.lg_tv
+      source: '{{ trigger.to_state.state | string }}'
+
+# Adjust light ambiance on ambiance selection.
+- id: '1564964218370'
+  alias: Adjust Light Ambiance
+  trigger:
+  - entity_id: input_select.light_ambiance
+    platform: state
+  condition: []
+  action:
+  - service: script.turn_on
+    data_template:
+      entity_id: "{% if is_state(\"input_select.light_ambiance\", \"Cinema\") %}\n\
+        \  script.light_ambiance_cinema\n{%-elif is_state(\"input_select.light_ambiance\"\
+        , \"Cozy\") %}\n  script.light_ambiance_cozy\n{%-elif is_state(\"input_select.light_ambiance\"\
+        , \"Desk Focus\") %}\n  script.light_ambiance_desk_focus\n{%-elif is_state(\"\
+        input_select.light_ambiance\", \"Red\") %}\n  script.light_ambiance_red\n\
+        {%-elif is_state(\"input_select.light_ambiance\", \"Sleep\") %}\n  script.home_off\n\
+        {% else %}\n  none\n{% endif %}\n"

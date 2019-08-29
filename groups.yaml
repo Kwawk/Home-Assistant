@@ -1,0 +1,56 @@
+#####################################
+## Rooms.                          ##
+#####################################
+
+  entrance:
+    name: "Entrée"
+    entities:
+      - light.entrance_1
+      - light.entrance_2
+      - light.entrance_3
+
+  living_room:
+    name: "Salon"
+    entities:
+      - light.fan_1
+      - light.fan_2
+      - light.fan_3
+      - light.desk_leds
+
+  kitchen:
+    name: "Cuisine"
+    entities:
+      - light.kitchen_1
+      - light.kitchen_2
+
+  bathroom:
+    name: "Salle de bain"
+    entities:
+      - light.bathroom_1
+
+  desk:
+    name: "Bureau"
+    entities:
+      - switch.desk_lamp
+
+
+#####################################
+## Home.                           ##
+#####################################
+
+  home:
+    name: "Home"
+    entities:
+      - light.entrance_1
+      - light.entrance_2
+      - light.entrance_3
+      - light.fan_1
+      - light.fan_2
+      - light.fan_3
+      - light.desk_leds
+      - light.kitchen_1
+      - light.kitchen_2
+      - light.bathroom_1
+      - switch.desk_lamp
+      - switch.78638353ecfabc96c763 # Extractor.
+      - media_player.lg_tv

@@ -1,0 +1,257 @@
+#TODO
+# Find a way to rename "media_player.bureau" as "media_player.google_home"
+# Find a way to rename "media_player.tv_du_salon" as "media_player.chromecast"
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+frontend:
+  themes: !include themes.yaml
+  javascript_version: latest
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+# --- Integrations ---
+
+# Text to speech.
+# https://www.home-assistant.io/components/tts/
+tts:
+  - platform: google_translate
+
+# Zones.
+# https://www.home-assistant.io/components/zone/
+zone:
+  - name: Sevenhugs
+    latitude: 48.819906
+    longitude: 2.324802
+    radius: 100
+    icon: 'mdi:worker'
+  - name: 'EPITA'
+    latitude: 48.815420
+    longitude: 2.363049
+    radius: 100
+    icon: 'mdi:school'
+  - name: 'Home'
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    radius: 100
+    icon: 'mdi:home'
+
+# Persons.
+person:
+  - name: Francois
+    id: francois
+    device_trackers:
+      - device_tracker.iphone_de_francois
+  - name: Rabeb
+    id: rabeb
+    device_trackers:
+      - device_tracker.iphone_de_rabeb
+
+# Device trackers.
+device_tracker:
+  # Bbox.
+  # https://www.home-assistant.io/components/bbox/
+  - platform: bbox
+    host: '192.168.1.254'
+
+# Xiaomi - Gateway and sensors.
+# https://www.home-assistant.io/components/xiaomi_aqara/
+# xiaomi_aqara:
+#   gateways:
+#     - mac: '7C2664C7BE5C'
+#       key: '8A72DD7AB1EC4ECF'
+#       host: '192.168.1.70'
+
+# Hue bridge.
+# https://www.home-assistant.io/components/hue/
+hue:
+  bridges:
+    - host: '192.168.1.37'
+
+# Tuya - SmartLife plugs and switches.
+# https://www.home-assistant.io/components/tuya/
+tuya:
+  platform: smart_life
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: 33
+
+# MagicHome - Leds strip.
+# https://www.home-assistant.io/components/flux_led/
+light:
+  - platform: flux_led
+    devices:
+      192.168.1.31:
+        name: 'desk_leds'
+
+# Wake on lan - For Kwak RedFire.
+# https://www.home-assistant.io/components/wake_on_lan/
+wake_on_lan:
+
+# Shell commands.
+shell_command:
+  # To enbale it on Windows, follow method 1 of
+  # https://www.wikihow.com/Remotely-Shutdown-a-Computer
+  turn_off_target: !secret turn_off_redfire
+
+sensor:
+  # Bbox.
+  # https://www.home-assistant.io/components/bbox/
+  - platform: bbox
+    monitored_variables:
+      - down_max_bandwidth
+      - up_max_bandwidth
+      - current_down_bandwidth
+      - current_up_bandwidth
+
+  # Home Assistant system monitor.
+  # https://www.home-assistant.io/components/systemmonitor/
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: last_boot
+      - type: processor_use
+      - type: memory_use_percent
+      - type: swap_use_percent
+
+  # Time & Date.
+  # https://www.home-assistant.io/components/time_date/
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'date_time_iso'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'
+
+# Speedtest - Done every 60 minutes.
+# https://www.home-assistant.io/components/speedtestdotnet/
+speedtestdotnet:
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+# Google cast.
+# https://www.home-assistant.io/components/cast/
+cast:
+  media_player:
+    - host: '192.168.1.36'
+    - host: '192.168.1.39'
+    - host: '192.168.1.61'
+
+# LG WebOS - Media player.
+# https://www.home-assistant.io/components/webostv/
+media_player:
+  - platform: webostv
+    host: '192.168.1.60'
+    name: 'lg_tv'
+    filename: webostv.conf
+    timeout: 5
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret lg_tv_mac_address
+    customize:
+      sources:
+        - 'youtube'
+        - 'netflix'
+        - 'PC'
+        - 'Chromecast'
+        - 'PS4'
+        - 'HDMI Switch'
+
+# Custom switches.
+switch:
+  # Turn ON/OFF Kwak RedFire.
+  - platform: wake_on_lan
+    name: 'redfire'
+    mac_address: !secret redfire_mac_address
+    host: '192.168.1.10'
+    turn_off:
+      - service: shell_command.turn_off_target
+  # Turn ON/OFF LG TV.
+  - platform: template
+    switches:
+      lg_tv:
+        value_template: "{{ not is_state('media_player.lg_tv', 'off') }}"
+        turn_on:
+          service: media_player.turn_on
+          data:
+            entity_id: media_player.tv_du_salon
+        turn_off:
+          service: media_player.turn_off
+          data:
+            entity_id: media_player.lg_tv
+
+# Custom selectors.
+# https://www.home-assistant.io/components/input_select/
+# https://www.home-assistant.io/cookbook/perform_actions_based_on_input_select/
+# https://community.home-assistant.io/t/how-to-set-state-to-an-input-select/2060
+input_select:
+  tv_channel:
+    name: 'TV Channel'
+    options:
+      - None
+      - HDMI Switch
+      - PC
+      - PS4
+      - Chromecast
+      - Netflix
+      - Youtube
+    initial: None
+    icon: mdi:remote-tv
+  light_ambiance:
+    name: 'Light Ambiance'
+    options:
+      - None
+      - Cinema
+      - Cozy
+      - Desk Focus
+      - Red
+      - Sleep
+    initial: None
+    icon: mdi:palette-outline
+
+# Custom number sliders.
+# https://www.home-assistant.io/components/input_number/
+input_number:
+  tv_volume:
+    name: Volume
+    initial: 0 #FIXME "{{ media_player.lg_tv.volume_level | float }}"
+    min: 0
+    max: 1
+    step: 0.01
+
+notify:
+  # LG WebOS - Notifications.
+  # https://www.home-assistant.io/components/webostv/
+  - platform: webostv
+    host: '192.168.1.60'
+    name: 'lg_tv'
+    filename: webostv.conf
+
+# Deconz.
+# https://www.home-assistant.io/components/deconz/
+# https://community.home-assistant.io/t/how-to-configure-deconz-conbee-in-docker/79149
+deconz:
+  host: 192.168.1.30
+  port: 4043
+
+# Shopping list.
+# https://www.home-assistant.io/components/shopping_list/
+shopping_list:
+
+# iOS - Notifications and tracking.
+# https://www.home-assistant.io/docs/ecosystem/ios/
+ios:
