@@ -17,6 +17,8 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
+homeassistant:
+  customize: !include customize.yaml
 
 #####################################
 ## Devices.                        ##
@@ -245,7 +247,6 @@ switch:
 # https://community.home-assistant.io/t/how-to-set-state-to-an-input-select/2060
 input_select:
   tv_channel:
-    name: 'TV Channel'
     options:
       - None
       - HDMI Switch
@@ -255,9 +256,7 @@ input_select:
       - Netflix
       - Youtube
     initial: None
-    icon: mdi:remote-tv
   light_ambiance:
-    name: 'Light Ambiance'
     options:
       - None
       - Cinema
@@ -266,13 +265,11 @@ input_select:
       - Red
       - Sleep
     initial: None
-    icon: mdi:palette-outline
 
 # Custom number sliders.
 # https://www.home-assistant.io/components/input_number/
 input_number:
   tv_volume:
-    name: Volume
     initial: 0 #FIXME "{{ media_player.lg_tv.volume_level | float }}"
     min: 0
     max: 1

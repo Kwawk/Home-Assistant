@@ -3,14 +3,12 @@
 #####################################
 
   entrance:
-    name: "Entrée"
     entities:
       - light.entrance_1
       - light.entrance_2
       - light.entrance_3
 
   living_room:
-    name: "Salon"
     entities:
       - light.fan_1
       - light.fan_2
@@ -19,19 +17,16 @@
       - media_player.lg_tv
 
   kitchen:
-    name: "Cuisine"
     entities:
       - light.kitchen_1
       - light.kitchen_2
       - switch.78638353ecfabc96c763 # Extractor.
 
   bathroom:
-    name: "Salle de bain"
     entities:
       - light.bathroom_1
 
   desk:
-    name: "Bureau"
     entities:
       - switch.desk_lamp
 
@@ -43,8 +38,8 @@
   home:
     name: "Home"
     entities:
-      - groups.entrance
-      - groups.living_room
-      - groups.kitchen
-      - groups.bathroom
-      - groups.desk
+      - group.entrance
+      - group.living_room
+      - group.kitchen
+      - group.bathroom
+      - group.desk

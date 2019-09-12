@@ -1,0 +1,133 @@
+#####################################
+## Lights.                         ##
+#####################################
+
+light.kitchen_1:
+  friendly_name: Cuisine 1
+light.kitchen_2:
+  friendly_name: Cuisine 2
+
+light.entrance_1:
+  friendly_name: Entrée 1
+light.entrance_2:
+  friendly_name: Entrée 2
+light.entrance_3:
+  friendly_name: Entrée 3
+
+light.fan_1:
+  friendly_name: Ventilateur 1
+light.fan_2:
+  friendly_name: Ventilateur 2
+light.fan_3:
+  friendly_name: Ventilateur 3
+light.desk_leds:
+  icon: 'mdi:led-variant-on'
+  friendly_name: Ruban de leds
+
+light.bathroom_1:
+  friendly_name: Salle de bain 1
+
+light.espace_de_loisirs_1:
+  hidden: true
+
+
+#####################################
+## Switches.                       ##
+#####################################
+
+switch.desk_lamp:
+  icon: 'mdi:desk-lamp'
+  friendly_name: Lampe de bureau
+
+switch.056042563c71bf28403e:
+  icon: 'mdi:toaster-oven'
+  friendly_name: Grille pain
+
+switch.78638353ecfabc96c763:
+  icon: 'mdi:fan'
+  friendly_name: Hotte aspirante
+
+switch.lg_tv:
+  icon: 'mdi:television-classic'
+  friendly_name: LG TV
+
+switch.redfire:
+  icon: 'mdi:desktop-tower'
+  friendly_name: Red Fire
+
+
+#####################################
+## Sensors.                        ##
+#####################################
+
+binary_sensor.lightlevel_1:
+  friendly_name: Présence SDB
+
+sensor.lightlevel_1:
+  icon: 'mdi:brightness-6'
+  friendly_name: Luminosité SDB
+
+binary_sensor.water_1:
+  friendly_name: Inondation évier
+
+sensor.temperature_1:
+  friendly_name: Température
+
+sensor.temperature_1_2:
+  friendly_name: Humidité
+
+
+#####################################
+## Media players.                  ##
+#####################################
+
+media_player.tv_du_salon:
+  friendly_name: Chromecast
+
+media_player.bureau:
+  friendly_name: Google Home Mini
+
+
+#####################################
+## Groups.                         ##
+#####################################
+
+group.entrance:
+  icon: 'mdi:door'
+  friendly_name: Entrée
+
+group.bathroom:
+  icon: 'mdi:shower'
+  friendly_name: Salle de bain
+
+group.desk:
+  icon: 'mdi:desk-lamp'
+  friendly_name: Bureau
+
+group.living_room:
+  icon: 'mdi:television-classic'
+  friendly_name: Salon
+
+group.kitchen:
+  icon: 'mdi:silverware-fork-knife'
+  friendly_name: Cuisine
+
+groups.home:
+  friendly_name: Home
+
+
+#####################################
+## Tweaks.                         ##
+#####################################
+
+input_select.light_ambiance:
+  icon: 'mdi:palette-outline'
+  friendly_name: Light Ambiance
+
+input_select.tv_channel:
+  icon: 'mdi:remote-tv'
+  friendly_name: TV Channel
+
+input_number.tv_volume:
+  icon: 'mdi:volume-high'
+  friendly_name: Volume
