@@ -32,6 +32,39 @@
 
 
 #####################################
+## Door sensors.                   ##
+#####################################
+
+# OpenClose 10 - Open.
+#   -> Turn ON Entrance lights.
+- alias: Turn on entrance lights on door open
+  trigger:
+    - entity_id: binary_sensor.openclose_10
+      from: 'off'
+      platform: state
+      to: 'on'
+  condition: []
+  action:
+    - service: homeassistant.turn_on
+      data: {}
+      entity_id: group.entrance
+
+# OpenClose 10 - Closed.
+#   -> Turn OFF Entrance lights.
+- alias: Turn off entrance lights 1 minute after door close
+  trigger:
+    entity_id: binary_sensor.openclose_10
+    from: 'on'
+    platform: state
+    to: 'off'
+    for:
+      minutes: 1
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.entrance
+
+
+#####################################
 ## Switches.                       ##
 #####################################
 

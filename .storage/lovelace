@@ -253,20 +253,37 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "light.entrance_1"
-                                },
-                                {
-                                    "entity": "light.entrance_2"
-                                },
-                                {
-                                    "entity": "light.entrance_3"
+                                    "entities": [
+                                        {
+                                            "entity": "light.entrance_1"
+                                        },
+                                        {
+                                            "entity": "light.entrance_2"
+                                        },
+                                        {
+                                            "entity": "light.entrance_3"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.openclose_10"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Entr\u00e9e",
+                                    "type": "entities"
                                 }
                             ],
-                            "show_header_toggle": true,
-                            "title": "Entr\u00e9e",
-                            "type": "entities"
+                            "type": "custom:vertical-stack-in-card"
                         },
                         {
                             "cards": [
@@ -303,8 +320,7 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "binary_sensor.water_1",
-                                            "name": "Inondation \u00e9vier"
+                                            "entity": "binary_sensor.water_1"
                                         }
                                     ],
                                     "show_header_toggle": false,
