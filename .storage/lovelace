@@ -1,0 +1,614 @@
+{
+    "data": {
+        "config": {
+            "frontend": {
+                "themes": {
+                    "happy": {
+                        "primary-color": "pink"
+                    },
+                    "sad": {
+                        "primary-color": "blue"
+                    }
+                }
+            },
+            "resources": [
+                {
+                    "type": "js",
+                    "url": "/local/vertical-stack-in-card.js?v=0.1.3"
+                },
+                {
+                    "type": "js",
+                    "url": "/local/light-entity-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/mini-media-player.js"
+                }
+            ],
+            "styles": {
+                "divider": {
+                    "background": "#62717b",
+                    "height": "1px",
+                    "margin": "auto",
+                    "width": "80%"
+                }
+            },
+            "title": "Studio",
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "group.entrance"
+                                                },
+                                                {
+                                                    "entity": "group.bathroom"
+                                                },
+                                                {
+                                                    "entity": "group.desk"
+                                                },
+                                                {
+                                                    "entity": "group.living_room"
+                                                },
+                                                {
+                                                    "entity": "group.kitchen"
+                                                }
+                                            ],
+                                            "show_header_toggle": true,
+                                            "title": "Eclairage",
+                                            "type": "entities"
+                                        }
+                                    ],
+                                    "type": "custom:vertical-stack-in-card"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "switch.78638353ecfabc96c763"
+                                        },
+                                        {
+                                            "entity": "switch.056042563c71bf28403e"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Cuisine",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "switch.redfire",
+                                            "name": "Red Fire"
+                                        },
+                                        {
+                                            "entity": "switch.lg_tv",
+                                            "icon": "mdi:television-classic",
+                                            "name": "LG TV"
+                                        },
+                                        {
+                                            "entity": "input_select.tv_channel"
+                                        },
+                                        {
+                                            "entity": "input_number.tv_volume",
+                                            "icon": "mdi:volume-high"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Media",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "elements": [
+                                        {
+                                            "entity": "sensor.time",
+                                            "style": {
+                                                "color": "white",
+                                                "font-size": "4vw",
+                                                "left": "50%",
+                                                "top": "35%"
+                                            },
+                                            "type": "state-label"
+                                        },
+                                        {
+                                            "entity": "sensor.date",
+                                            "style": {
+                                                "color": "white",
+                                                "font-size": "2vw",
+                                                "left": "50%",
+                                                "top": "70%"
+                                            },
+                                            "type": "state-label"
+                                        }
+                                    ],
+                                    "image": "/local/datetime_bg.png",
+                                    "type": "picture-elements"
+                                },
+                                {
+                                    "entity": "weather.studio",
+                                    "show_header_toggle": false,
+                                    "type": "weather-forecast"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.temperature_1",
+                                            "name": "Temp\u00e9rature"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_1_2",
+                                            "name": "Humidit\u00e9"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.water_1",
+                                            "name": "Inondation \u00e9vier"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.lightlevel_1",
+                                            "name": "Pr\u00e9sence SDB"
+                                        },
+                                        {
+                                            "entity": "sensor.lightlevel_1",
+                                            "icon": "mdi:brightness-6",
+                                            "name": "Luminosit\u00e9 SDB"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Capteurs",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "input_select.light_ambiance"
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Ambiances",
+                                    "type": "entities"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "effects_list": false,
+                                            "entity": "light.ventilateur",
+                                            "full_width_sliders": true,
+                                            "group": true,
+                                            "header": "Ventilateur",
+                                            "persist_features": true,
+                                            "show_slider_percent": true,
+                                            "type": "custom:light-entity-card"
+                                        },
+                                        {
+                                            "entities": [],
+                                            "show_header_toggle": false,
+                                            "type": "entities"
+                                        }
+                                    ],
+                                    "type": "custom:vertical-stack-in-card"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "effects_list": false,
+                                            "entity": "light.desk_leds",
+                                            "full_width_sliders": true,
+                                            "group": true,
+                                            "header": "Ruban de leds",
+                                            "persist_features": true,
+                                            "show_slider_percent": true,
+                                            "type": "custom:light-entity-card",
+                                            "white_value": false
+                                        },
+                                        {
+                                            "entities": [],
+                                            "show_header_toggle": false,
+                                            "type": "entities"
+                                        }
+                                    ],
+                                    "type": "custom:vertical-stack-in-card"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:home",
+                    "panel": false,
+                    "path": "default_view",
+                    "theme": "midnight",
+                    "title": "Main"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.entrance_1"
+                                },
+                                {
+                                    "entity": "light.entrance_2"
+                                },
+                                {
+                                    "entity": "light.entrance_3"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Entr\u00e9e",
+                            "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "light.kitchen_1"
+                                        },
+                                        {
+                                            "entity": "light.kitchen_2"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "switch.78638353ecfabc96c763"
+                                        },
+                                        {
+                                            "entity": "switch.056042563c71bf28403e"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.water_1",
+                                            "name": "Inondation \u00e9vier"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Cuisine",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "custom:vertical-stack-in-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.desk_leds"
+                                },
+                                {
+                                    "entity": "switch.desk_lamp"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Bureau",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.bathroom_1"
+                                },
+                                {
+                                    "style": {
+                                        "background": "#62717b",
+                                        "height": "1px",
+                                        "margin": "auto",
+                                        "width": "80%"
+                                    },
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "binary_sensor.lightlevel_1",
+                                    "name": "Pr\u00e9sence"
+                                },
+                                {
+                                    "entity": "sensor.lightlevel_1",
+                                    "icon": "mdi:brightness-6",
+                                    "name": "Luminosit\u00e9"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Salle de bain",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.fan_1"
+                                },
+                                {
+                                    "entity": "light.fan_2"
+                                },
+                                {
+                                    "entity": "light.fan_3"
+                                },
+                                {
+                                    "style": {
+                                        "background": "#62717b",
+                                        "height": "1px",
+                                        "margin": "auto",
+                                        "width": "80%"
+                                    },
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "switch.redfire"
+                                },
+                                {
+                                    "entity": "switch.lg_tv",
+                                    "icon": "mdi:television-classic",
+                                    "name": "LG TV"
+                                },
+                                {
+                                    "style": {
+                                        "background": "#62717b",
+                                        "height": "1px",
+                                        "margin": "auto",
+                                        "width": "80%"
+                                    },
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "sensor.temperature_1"
+                                },
+                                {
+                                    "entity": "sensor.temperature_1_2"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Salon",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:floor-plan",
+                    "theme": "midnight",
+                    "title": "Rooms"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "updater.updater"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Home assistant",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.memory_use_percent",
+                                            "name": "Memory usage"
+                                        },
+                                        {
+                                            "entity": "sensor.processor_use",
+                                            "name": "Processor usage"
+                                        },
+                                        {
+                                            "entity": "sensor.disk_use_percent",
+                                            "name": "Disk usage"
+                                        },
+                                        {
+                                            "entity": "sensor.swap_use_percent",
+                                            "name": "Swap usage"
+                                        },
+                                        {
+                                            "entity": "sensor.last_boot"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "System monitor",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.speedtest_download",
+                                            "name": "Download"
+                                        },
+                                        {
+                                            "entity": "sensor.speedtest_upload",
+                                            "name": "Upload"
+                                        },
+                                        {
+                                            "entity": "sensor.speedtest_ping",
+                                            "name": "Ping"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Speedtest",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.bbox_currently_used_upload_bandwidth"
+                                        },
+                                        {
+                                            "entity": "sensor.bbox_currently_used_download_bandwidth"
+                                        },
+                                        {
+                                            "entity": "sensor.bbox_maximum_upload_bandwidth"
+                                        },
+                                        {
+                                            "entity": "sensor.bbox_maximum_download_bandwidth"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Bbox",
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.rabeb_is_home"
+                                },
+                                {
+                                    "entity": "automation.turn_on_bathroom_lights_on_move"
+                                },
+                                {
+                                    "entity": "automation.turn_off_bathroom_lights_10_minutes_after_last_movement"
+                                },
+                                {
+                                    "entity": "automation.home_off_on_switch_click"
+                                },
+                                {
+                                    "entity": "automation.redfire_off_on_switch_double_click"
+                                },
+                                {
+                                    "entity": "automation.trig_water_leak_script_on_kitchen_water_leak"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Automations",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:toolbox-outline",
+                    "panel": false,
+                    "theme": "midnight",
+                    "title": "System"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        [
+                            {
+                                "artwork": "cover",
+                                "entity": "media_player.lg_tv",
+                                "hide": {
+                                    "power_state": false,
+                                    "source": true,
+                                    "volume": true
+                                },
+                                "icon": "mdi:spotify",
+                                "type": "custom:mini-media-player"
+                            }
+                        ],
+                        {
+                            "entities": [
+                                {
+                                    "entity": "person.francois",
+                                    "icon": "mdi:human-male"
+                                },
+                                {
+                                    "entity": "person.rabeb",
+                                    "icon": "mdi:human-female"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Pr\u00e9sence",
+                            "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "content": " ",
+                                    "title": "iPhone de Fran\u00e7ois",
+                                    "type": "markdown"
+                                },
+                                {
+                                    "entity": "sensor.iphone_battery_level",
+                                    "max": 100,
+                                    "min": 0,
+                                    "name": "battery",
+                                    "severity": {
+                                        "green": 70,
+                                        "red": 0,
+                                        "yellow": 20
+                                    },
+                                    "theme": "default",
+                                    "type": "gauge"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.iphone_battery_state"
+                                        }
+                                    ],
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "custom:vertical-stack-in-card"
+                        }
+                    ],
+                    "title": "WIP"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "content": "\n### SOME INTEGRATIONS\nOK - https://www.home-assistant.io/components/webostv/\nOK - https://www.home-assistant.io/components/flux_led/\nOK - https://community.home-assistant.io/t/tuya-integration/82459/54\nTODO - https://www.home-assistant.io/components/xiaomi_aqara/\nOK - https://www.home-assistant.io/components/bbox/\nTODO - https://www.home-assistant.io/components/spotify/\nOK - https://www.home-assistant.io/components/speedtestdotnet/\nTODO - https://www.home-assistant.io/components/googlehome/\nOK - https://www.home-assistant.io/components/shopping_list/\n\n---\n\n### ZONES & PERSON\nhttps://www.home-assistant.io/components/zone/\nhttps://www.home-assistant.io/components/person/\nhttps://www.home-assistant.io/components/device_tracker/\nhttps://www.home-assistant.io/getting-started/presence-detection/\n\n---\n\n### NOTIFICATIONS\nhttps://thingsmatic.com/2017/11/10/home-assistant-notifications-on-ios/\nhttps://www.home-assistant.io/docs/ecosystem/ios/notifications/\nhttps://www.home-assistant.io/docs/ecosystem/ios/notifications/actions/\n\n---\n\n### ZIGBEE\nhttps://presentationdeconz.wordpress.com/\nhttps://www.home-assistant.io/components/deconz/#binary-sensor\n* Xiaomi Smart Home Security Door & Window Contact Sensor\n* Xiaomi Motion Sensor\n\nhttps://community.home-assistant.io/t/difference-between-deconz-and-zha-conbee-stick/93568/8\n\n---\n\n### PC - Wake on Lan\nhttps://www.home-assistant.io/components/wake_on_lan/\nhttps://dszigeti.wordpress.com/2010/10/14/asus-p7p55d-enable-wake-on-lan-wol/\nhttps://pypi.org/project/wakeonlan/\n\n---\n\n### CEC\nhttps://www.home-assistant.io/components/hdmi_cec/\n\n---\n\n### IR\n",
+                            "title": "Links",
+                            "type": "markdown"
+                        },
+                        {
+                            "title": "TODO List",
+                            "type": "shopping-list"
+                        }
+                    ],
+                    "title": "HA"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}
