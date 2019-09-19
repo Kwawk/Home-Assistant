@@ -512,29 +512,76 @@
                             "type": "vertical-stack"
                         },
                         {
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "automation.rabeb_is_home"
-                                },
-                                {
-                                    "entity": "automation.turn_on_bathroom_lights_on_move"
-                                },
-                                {
-                                    "entity": "automation.turn_off_bathroom_lights_10_minutes_after_last_movement"
-                                },
-                                {
-                                    "entity": "automation.home_off_on_switch_click"
-                                },
-                                {
-                                    "entity": "automation.redfire_off_on_switch_double_click"
-                                },
-                                {
-                                    "entity": "automation.trig_water_leak_script_on_kitchen_water_leak"
+                                    "entities": [
+                                        {
+                                            "entity": "automation.rabeb_is_home"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "automation.turn_on_bathroom_lights_on_move"
+                                        },
+                                        {
+                                            "entity": "automation.turn_off_bathroom_lights_10_minutes_after_last_movement"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "automation.home_off_on_switch_click"
+                                        },
+                                        {
+                                            "entity": "automation.redfire_off_on_switch_double_click"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "automation.trig_water_leak_script_on_kitchen_water_leak"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "automation.turn_on_entrance_lights_on_door_open"
+                                        },
+                                        {
+                                            "entity": "automation.turn_off_entrance_lights_1_minute_after_door_close"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Automations",
+                                    "type": "entities"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Automations",
-                            "type": "entities"
+                            "type": "custom:vertical-stack-in-card"
                         }
                     ],
                     "icon": "mdi:toolbox-outline",
