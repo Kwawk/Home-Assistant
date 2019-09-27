@@ -76,7 +76,8 @@ sensor.temperature_1:
 sensor.temperature_1_2:
   friendly_name: Humidité
 
-sensor.openclose_10:
+binary_sensor.openclose_10:
+  icon: 'mdi:door'
   friendly_name: Porte d'entrée
 
 
