@@ -1,0 +1,14 @@
+# Ignore those files.
+home-assistant.log
+home-assistant_v2.db
+secrets.yaml
+webostv.conf
+.ios.conf
+.HA_VERSION
+
+.storage/
+tts/
+*.swp
+
+# Do not ignore this file:
+!.storage/lovelace
