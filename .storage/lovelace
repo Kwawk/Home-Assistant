@@ -172,9 +172,16 @@
                                             "entity": "binary_sensor.lightlevel_1"
                                         },
                                         {
-                                            "entity": "sensor.lightlevel_1",
-                                            "icon": "mdi:brightness-6",
-                                            "name": "Luminosit\u00e9 SDB"
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.openclose_10"
                                         }
                                     ],
                                     "show_header_toggle": false,
