@@ -92,30 +92,30 @@ media_player.bureau:
 
 
 #####################################
-## Groups.                         ##
+## Groups (lights).                ##
 #####################################
 
-group.entrance:
+group.entrance_lights:
   icon: 'mdi:door'
   friendly_name: Entrée
 
-group.bathroom:
+group.bathroom_lights:
   icon: 'mdi:shower'
   friendly_name: Salle de bain
 
-group.desk:
+group.desk_lights:
   icon: 'mdi:desk-lamp'
   friendly_name: Bureau
 
-group.living_room:
+group.living_room_lights:
   icon: 'mdi:television-classic'
   friendly_name: Salon
 
-group.kitchen:
+group.kitchen_lights:
   icon: 'mdi:silverware-fork-knife'
   friendly_name: Cuisine
 
-groups.home:
+groups.home_lights:
   friendly_name: Home
 
 

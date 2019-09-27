@@ -45,19 +45,19 @@
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "group.entrance"
+                                                    "entity": "group.entrance_lights"
                                                 },
                                                 {
-                                                    "entity": "group.bathroom"
+                                                    "entity": "group.bathroom_lights"
                                                 },
                                                 {
-                                                    "entity": "group.desk"
+                                                    "entity": "group.desk_lights"
                                                 },
                                                 {
-                                                    "entity": "group.living_room"
+                                                    "entity": "group.living_room_lights"
                                                 },
                                                 {
-                                                    "entity": "group.kitchen"
+                                                    "entity": "group.kitchen_lights"
                                                 }
                                             ],
                                             "show_header_toggle": true,

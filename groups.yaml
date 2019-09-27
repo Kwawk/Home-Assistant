@@ -1,42 +1,69 @@
 #####################################
-## Rooms.                          ##
+## Lights.                         ##
 #####################################
 
-  entrance:
+  entrance_lights:
     entities:
       - light.entrance_1
       - light.entrance_2
       - light.entrance_3
 
-  living_room:
+  living_room_lights:
     entities:
       - light.fan_1
       - light.fan_2
       - light.fan_3
       - light.desk_leds
+
+  kitchen_lights:
+    entities:
+      - light.kitchen_1
+      - light.kitchen_2
+
+  bathroom_lights:
+    entities:
+      - light.bathroom_1
+
+  desk_lights:
+    entities:
+      - switch.desk_lamp
+
+  home_lights:
+    entities:
+      - group.entrance_lights
+      - group.living_room_lights
+      - group.kitchen_lights
+      - group.bathroom_lights
+      - group.desk_lights
+
+
+#####################################
+## Rooms.                          ##
+#####################################
+
+  entrance:
+    entities:
+      - group.entrance_lights
+
+  living_room:
+    entities:
+      - group.living_room_lights
       - media_player.lg_tv
 
   kitchen:
     entities:
-      - light.kitchen_1
-      - light.kitchen_2
+      - group.kitchen_lights
       - switch.78638353ecfabc96c763 # Extractor.
 
   bathroom:
     entities:
-      - light.bathroom_1
+      - group.bathroom_lights
 
   desk:
     entities:
-      - switch.desk_lamp
-
-
-#####################################
-## Home.                           ##
-#####################################
+      - group.desk_lights
 
   home:
-    name: "Home"
     entities:
       - group.entrance
       - group.living_room

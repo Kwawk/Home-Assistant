@@ -118,7 +118,7 @@ light_ambiance_red:
 ## Other scripts.                  ##
 #####################################
 
-# Turn off home lights.
+# Turn off home.
 home_off:
   alias: Turn off home lights
   sequence:

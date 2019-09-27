@@ -15,7 +15,7 @@
   action:
     - service: homeassistant.turn_on
       data: {}
-      entity_id: group.bathroom
+      entity_id: group.bathroom_lights
 
 # LightLevel 1 - No movement during 10 minutes.
 #   -> Turn OFF Bathroom lights.
@@ -28,7 +28,7 @@
       minutes: 10
   action:
     service: homeassistant.turn_off
-    entity_id: group.bathroom
+    entity_id: group.bathroom_lights
 
 
 #####################################
@@ -45,14 +45,14 @@
       to: 'on'
   condition:
     - condition: state
-      entity_id: 'group.entrance'
+      entity_id: group.entrance_lights
       state: 'off' 
   action:
     - service: homeassistant.turn_on
-      entity_id: group.entrance
+      entity_id: group.entrance_lights
     - delay: '00:01:00'
     - service: homeassistant.turn_off
-      entity_id: group.entrance
+      entity_id: group.entrance_lights
 
 
 #####################################
