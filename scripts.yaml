@@ -137,3 +137,13 @@ water_leak:
       data_template:
         title: 'Fuite détectée'
         message: "{{ place }}" 
+
+# Turn off redfire.
+redfire_off:
+  alias: 'Turn off redfire and notify tv'
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: switch.redfire
+    - service: notify.lg_tv
+      data_template:
+        message: 'PC - Extinction en cours' 
