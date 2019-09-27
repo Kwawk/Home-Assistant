@@ -142,25 +142,10 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "sensor.temperature_1",
-                                            "name": "Temp\u00e9rature"
+                                            "entity": "sensor.temperature_1"
                                         },
                                         {
-                                            "entity": "sensor.temperature_1_2",
-                                            "name": "Humidit\u00e9"
-                                        },
-                                        {
-                                            "style": {
-                                                "background": "#62717b",
-                                                "height": "1px",
-                                                "margin": "auto",
-                                                "width": "80%"
-                                            },
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.water_1",
-                                            "name": "Inondation \u00e9vier"
+                                            "entity": "sensor.temperature_1_2"
                                         },
                                         {
                                             "style": {
@@ -172,8 +157,19 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "binary_sensor.lightlevel_1",
-                                            "name": "Pr\u00e9sence SDB"
+                                            "entity": "binary_sensor.water_1"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.lightlevel_1"
                                         },
                                         {
                                             "entity": "sensor.lightlevel_1",
