@@ -61,8 +61,7 @@
       platform: event
   condition: []
   action:
-    service: homeassistant.turn_off
-    entity_id: switch.redfire
+    - service: script.redfire_off
 
 
 #####################################
