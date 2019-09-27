@@ -44,6 +44,7 @@ zone:
     icon: 'mdi:home'
 
 # Persons.
+# https://www.home-assistant.io/components/person/
 person:
   - name: Francois
     id: francois
@@ -55,6 +56,7 @@ person:
       - device_tracker.iphone_de_rabeb
 
 # Device trackers.
+# https://www.home-assistant.io/components/device_tracker/
 device_tracker:
   # Bbox.
   # https://www.home-assistant.io/components/bbox/
