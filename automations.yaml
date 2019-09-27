@@ -7,16 +7,15 @@
 - id: '1566598419162'
   alias: Turn on bathroom lights on move
   trigger:
-  - entity_id: binary_sensor.lightlevel_1
-    from: 'off'
-    platform: state
-    to: 'on'
+    - entity_id: binary_sensor.lightlevel_1
+      from: 'off'
+      platform: state
+      to: 'on'
   condition: []
   action:
-  - alias: ''
-    data: {}
-    service: homeassistant.turn_on
-    entity_id: group.bathroom
+    - service: homeassistant.turn_on
+      data: {}
+      entity_id: group.bathroom
 
 # LightLevel 1 - No movement during 10 minutes.
 #   -> Turn OFF Bathroom lights.
@@ -41,25 +40,25 @@
 - id: '1566598982550'
   alias: Home off on switch click
   trigger:
-  - event_data:
-      event: 1002
-      id: switch_1
-    event_type: deconz_event
-    platform: event
+    - event_data:
+        event: 1002
+        id: switch_1
+      event_type: deconz_event
+      platform: event
   condition: []
   action:
-  - service: script.home_off
+    - service: script.home_off
 
 # Switch 1 - Double click.
 #   -> Turn OFF Redfire.
 - id: '1566598982551'
   alias: Redfire off on switch double click
   trigger:
-  - event_data:
-      event: 1004
-      id: switch_1
-    event_type: deconz_event
-    platform: event
+    - event_data:
+        event: 1004
+        id: switch_1
+      event_type: deconz_event
+      platform: event
   condition: []
   action:
     service: homeassistant.turn_off
@@ -107,10 +106,10 @@
     entity_id: input_number.tv_volume
   condition: []
   action:
-  - service: media_player.volume_set
-    data_template:
-      entity_id: media_player.lg_tv
-      volume_level: '{{ trigger.to_state.state | float }}'
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.lg_tv
+        volume_level: '{{ trigger.to_state.state | float }}'
 
 # Adjust TV Channel on channel selection.
 - id: '1564964218369'
@@ -120,25 +119,25 @@
     platform: state
   condition: []
   action:
-  - service: media_player.select_source
-    data:
-      entity_id: media_player.lg_tv
-      source: '{{ trigger.to_state.state | string }}'
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.lg_tv
+        source: '{{ trigger.to_state.state | string }}'
 
 # Adjust light ambiance on ambiance selection.
 - id: '1564964218370'
   alias: Adjust Light Ambiance
   trigger:
-  - entity_id: input_select.light_ambiance
-    platform: state
+    - entity_id: input_select.light_ambiance
+      platform: state
   condition: []
   action:
-  - service: script.turn_on
-    data_template:
-      entity_id: "{% if is_state(\"input_select.light_ambiance\", \"Cinema\") %}\n\
-        \  script.light_ambiance_cinema\n{%-elif is_state(\"input_select.light_ambiance\"\
-        , \"Cozy\") %}\n  script.light_ambiance_cozy\n{%-elif is_state(\"input_select.light_ambiance\"\
-        , \"Desk Focus\") %}\n  script.light_ambiance_desk_focus\n{%-elif is_state(\"\
-        input_select.light_ambiance\", \"Red\") %}\n  script.light_ambiance_red\n\
-        {%-elif is_state(\"input_select.light_ambiance\", \"Sleep\") %}\n  script.home_off\n\
-        {% else %}\n  none\n{% endif %}\n"
+    - service: script.turn_on
+      data_template:
+        entity_id: "{% if is_state(\"input_select.light_ambiance\", \"Cinema\") %}\n\
+          \  script.light_ambiance_cinema\n{%-elif is_state(\"input_select.light_ambiance\"\
+          , \"Cozy\") %}\n  script.light_ambiance_cozy\n{%-elif is_state(\"input_select.light_ambiance\"\
+          , \"Desk Focus\") %}\n  script.light_ambiance_desk_focus\n{%-elif is_state(\"\
+          input_select.light_ambiance\", \"Red\") %}\n  script.light_ambiance_red\n\
+          {%-elif is_state(\"input_select.light_ambiance\", \"Sleep\") %}\n  script.home_off\n\
+          {% else %}\n  none\n{% endif %}\n"
