@@ -66,10 +66,23 @@
 
 
 #####################################
-## Flood detectors.                ##
+## Water sensors.                  ##
 #####################################
 
-#FIXME.
+# Water 1 - Leak.
+#   -> Trig water_leak script.
+- id: '1566598419162'
+  alias: Trig water_leak script on kitchen water leak
+  trigger:
+    - entity_id: binary_sensor.water_1
+      from: 'off'
+      platform: state
+      to: 'on'
+  condition: []
+  action:
+    - service: script.water_leak
+      data_template:
+        place: 'Evier de la cuisine'
 
 
 #####################################
