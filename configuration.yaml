@@ -61,14 +61,6 @@ device_tracker:
   - platform: bbox
     host: '192.168.1.254'
 
-# Xiaomi - Gateway and sensors.
-# https://www.home-assistant.io/components/xiaomi_aqara/
-# xiaomi_aqara:
-#   gateways:
-#     - mac: '7C2664C7BE5C'
-#       key: '8A72DD7AB1EC4ECF'
-#       host: '192.168.1.70'
-
 # Hue bridge.
 # https://www.home-assistant.io/components/hue/
 hue:
