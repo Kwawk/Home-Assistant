@@ -17,53 +17,12 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
-# --- Integrations ---
 
-# Text to speech.
-# https://www.home-assistant.io/components/tts/
-tts:
-  - platform: google_translate
+#####################################
+## Devices.                        ##
+#####################################
 
-# Zones.
-# https://www.home-assistant.io/components/zone/
-zone:
-  - name: Sevenhugs
-    latitude: 48.819906
-    longitude: 2.324802
-    radius: 100
-    icon: 'mdi:worker'
-  - name: 'EPITA'
-    latitude: 48.815420
-    longitude: 2.363049
-    radius: 100
-    icon: 'mdi:school'
-  - name: 'Home'
-    latitude: !secret home_latitude
-    longitude: !secret home_longitude
-    radius: 100
-    icon: 'mdi:home'
-
-# Persons.
-# https://www.home-assistant.io/components/person/
-person:
-  - name: Francois
-    id: francois
-    device_trackers:
-      - device_tracker.iphone_de_francois
-  - name: Rabeb
-    id: rabeb
-    device_trackers:
-      - device_tracker.iphone_de_rabeb
-
-# Device trackers.
-# https://www.home-assistant.io/components/device_tracker/
-device_tracker:
-  # Bbox.
-  # https://www.home-assistant.io/components/bbox/
-  - platform: bbox
-    host: '192.168.1.254'
-
-# Hue bridge.
+# Hue bridge - Philips hue bulbs.
 # https://www.home-assistant.io/components/hue/
 hue:
   bridges:
@@ -85,15 +44,63 @@ light:
       192.168.1.31:
         name: 'desk_leds'
 
-# Wake on lan - For Kwak RedFire.
-# https://www.home-assistant.io/components/wake_on_lan/
-wake_on_lan:
+# LG WebOS - Media player.
+# https://www.home-assistant.io/components/webostv/
+media_player:
+  - platform: webostv
+    host: '192.168.1.60'
+    name: 'lg_tv'
+    filename: webostv.conf
+    timeout: 5
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret lg_tv_mac_address
+    customize:
+      sources:
+        - 'youtube'
+        - 'netflix'
+        - 'PC'
+        - 'Chromecast'
+        - 'PS4'
+        - 'HDMI Switch'
 
-# Shell commands.
-shell_command:
-  # To enbale it on Windows, follow method 1 of
-  # https://www.wikihow.com/Remotely-Shutdown-a-Computer
-  turn_off_target: !secret turn_off_redfire
+# Deconz.
+# https://www.home-assistant.io/components/deconz/
+# https://community.home-assistant.io/t/how-to-configure-deconz-conbee-in-docker/79149
+deconz:
+  host: 192.168.1.30
+  port: 4043
+
+# Google cast.
+# https://www.home-assistant.io/components/cast/
+cast:
+  media_player:
+    - host: '192.168.1.36'
+    - host: '192.168.1.39'
+    - host: '192.168.1.61'
+
+# iOS - Notifications and tracking.
+# https://www.home-assistant.io/docs/ecosystem/ios/
+ios:
+
+
+#####################################
+## Services.                       ##
+#####################################
+
+notify:
+  # LG WebOS - Notifications.
+  # https://www.home-assistant.io/components/webostv/
+  - platform: webostv
+    host: '192.168.1.60'
+    name: 'lg_tv'
+    filename: webostv.conf
+
+# Text to speech.
+# https://www.home-assistant.io/components/tts/
+tts:
+  - platform: google_translate
 
 sensor:
   # Bbox.
@@ -136,34 +143,78 @@ speedtestdotnet:
     - download
     - upload
 
-# Google cast.
-# https://www.home-assistant.io/components/cast/
-cast:
-  media_player:
-    - host: '192.168.1.36'
-    - host: '192.168.1.39'
-    - host: '192.168.1.61'
+# Shopping list.
+# https://www.home-assistant.io/components/shopping_list/
+shopping_list:
 
-# LG WebOS - Media player.
-# https://www.home-assistant.io/components/webostv/
-media_player:
-  - platform: webostv
-    host: '192.168.1.60'
-    name: 'lg_tv'
-    filename: webostv.conf
-    timeout: 5
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret lg_tv_mac_address
-    customize:
-      sources:
-        - 'youtube'
-        - 'netflix'
-        - 'PC'
-        - 'Chromecast'
-        - 'PS4'
-        - 'HDMI Switch'
+# Wake on lan - For Kwak RedFire.
+# https://www.home-assistant.io/components/wake_on_lan/
+wake_on_lan:
+
+# Shell commands.
+shell_command:
+  # To enbale it on Windows, follow method 1 of
+  # https://www.wikihow.com/Remotely-Shutdown-a-Computer
+  turn_off_target: !secret turn_off_redfire
+
+
+#####################################
+## Zones.                          ##
+#####################################
+
+# Zones.
+# https://www.home-assistant.io/components/zone/
+zone:
+  - name: Sevenhugs
+    latitude: 48.819906
+    longitude: 2.324802
+    radius: 100
+    icon: 'mdi:worker'
+  - name: 'EPITA'
+    latitude: 48.815420
+    longitude: 2.363049
+    radius: 100
+    icon: 'mdi:school'
+  - name: 'Home'
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    radius: 100
+    icon: 'mdi:home'
+
+
+#####################################
+## Devices trackers.               ##
+#####################################
+
+# Device trackers.
+# https://www.home-assistant.io/components/device_tracker/
+device_tracker:
+  # Bbox.
+  # https://www.home-assistant.io/components/bbox/
+  - platform: bbox
+    host: '192.168.1.254'
+
+
+#####################################
+## Persons.                        ##
+#####################################
+
+# Persons.
+# https://www.home-assistant.io/components/person/
+person:
+  - name: Francois
+    id: francois
+    device_trackers:
+      - device_tracker.iphone_de_francois
+  - name: Rabeb
+    id: rabeb
+    device_trackers:
+      - device_tracker.iphone_de_rabeb
+
+
+#####################################
+## Tweaks.                         ##
+#####################################
 
 # Custom switches.
 switch:
@@ -226,26 +277,3 @@ input_number:
     min: 0
     max: 1
     step: 0.01
-
-notify:
-  # LG WebOS - Notifications.
-  # https://www.home-assistant.io/components/webostv/
-  - platform: webostv
-    host: '192.168.1.60'
-    name: 'lg_tv'
-    filename: webostv.conf
-
-# Deconz.
-# https://www.home-assistant.io/components/deconz/
-# https://community.home-assistant.io/t/how-to-configure-deconz-conbee-in-docker/79149
-deconz:
-  host: 192.168.1.30
-  port: 4043
-
-# Shopping list.
-# https://www.home-assistant.io/components/shopping_list/
-shopping_list:
-
-# iOS - Notifications and tracking.
-# https://www.home-assistant.io/docs/ecosystem/ios/
-ios:
