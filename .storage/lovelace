@@ -570,10 +570,7 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "automation.turn_on_entrance_lights_on_door_open"
-                                        },
-                                        {
-                                            "entity": "automation.turn_off_entrance_lights_1_minute_after_door_close"
+                                            "entity": "automation.turn_on_entrance_lights_for_1_minute_on_door_open"
                                         }
                                     ],
                                     "show_header_toggle": false,
