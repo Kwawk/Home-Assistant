@@ -216,7 +216,7 @@ device_tracker:
   - platform: bluetooth_le_tracker
     interval_seconds: 10
     # To disable when devices appear in known_devices.
-    track_new_devices: True
+    track_new_devices: False
 
 
 #####################################
