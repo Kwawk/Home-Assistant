@@ -110,7 +110,8 @@
 ## Other automations.              ##
 #####################################
 
-# Adjust TV Volume on volume selection.
+# Selection - Volume.
+#   -> Adjust TV Volume.
 - id: '1564963530903'
   alias: Adjust TV Volume
   trigger:
@@ -123,7 +124,8 @@
         entity_id: media_player.lg_tv
         volume_level: '{{ trigger.to_state.state | float }}'
 
-# Adjust TV Channel on channel selection.
+# Selection - Channel.
+#   -> Adjust TV Channel.
 - id: '1564964218369'
   alias: Adjust TV Channel
   trigger:
@@ -136,7 +138,8 @@
         entity_id: media_player.lg_tv
         source: '{{ trigger.to_state.state | string }}'
 
-# Adjust light ambiance on ambiance selection.
+# Selection - Light ambiance.
+#   -> Adjust light ambiance.
 - id: '1564964218370'
   alias: Adjust Light Ambiance
   trigger:
