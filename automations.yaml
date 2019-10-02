@@ -84,6 +84,20 @@
   action:
     - service: script.redfire_off
 
+# Switch 2 - Simple click.
+#   -> Turn ON/OFF Desk lamp.
+- alias: Desk lamp on/off on switch click
+  trigger:
+    - event_data:
+        event: 1002
+        id: switch_2
+      event_type: deconz_event
+      platform: event
+  condition: []
+  action:
+    - service: switch.toggle
+      data_template:
+        entity_id: switch.desk_lamp
 
 #####################################
 ## Water sensors.                  ##
