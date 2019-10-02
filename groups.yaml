@@ -22,6 +22,9 @@
 
   bathroom_lights:
     entities:
+      - light.mirror_1
+      - light.mirror_2
+      - light.mirror_3
       - light.bathroom_1
 
   desk_lights:
