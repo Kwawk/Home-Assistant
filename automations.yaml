@@ -4,8 +4,7 @@
 
 # LightLevel 1 - Movement.
 #   -> Turn ON Bathroom lights.
-- id: '1566598419162'
-  alias: Turn on bathroom lights on move
+- alias: Turn on bathroom lights on move
   trigger:
     - entity_id: binary_sensor.lightlevel_1
       from: 'off'
@@ -61,8 +60,7 @@
 
 # Switch 1 - Simple click.
 #   -> Turn OFF Home lights.
-- id: '1566598982550'
-  alias: Home off on switch click
+- alias: Home off on switch click
   trigger:
     - event_data:
         event: 1002
@@ -75,8 +73,7 @@
 
 # Switch 1 - Double click.
 #   -> Turn OFF Redfire.
-- id: '1566598982551'
-  alias: Redfire off on switch double click
+- alias: Redfire off on switch double click
   trigger:
     - event_data:
         event: 1004
@@ -94,8 +91,7 @@
 
 # Water 1 - Leak.
 #   -> Trig water_leak script.
-- id: '1566598419162'
-  alias: Trig water_leak script on kitchen water leak
+- alias: Trig water_leak script on kitchen water leak
   trigger:
     - entity_id: binary_sensor.water_1
       from: 'off'
@@ -114,8 +110,7 @@
 
 # Rabeb is Home.
 #   -> Notify Francois iPhone.
-- id: '1564447488079'
-  alias: Rabeb is home
+- alias: Rabeb is home
   trigger:
   - entity_id: device_tracker.iphone_de_rabeb
     from: not_home
@@ -136,8 +131,7 @@
 
 # Selection - Volume.
 #   -> Adjust TV Volume.
-- id: '1564963530903'
-  alias: Adjust TV Volume
+- alias: Adjust TV Volume
   trigger:
     platform: state
     entity_id: input_number.tv_volume
@@ -150,8 +144,7 @@
 
 # Selection - Channel.
 #   -> Adjust TV Channel.
-- id: '1564964218369'
-  alias: Adjust TV Channel
+- alias: Adjust TV Channel
   trigger:
   - entity_id: input_select.tv_channel
     platform: state
@@ -164,8 +157,7 @@
 
 # Selection - Light ambiance.
 #   -> Adjust light ambiance.
-- id: '1564964218370'
-  alias: Adjust Light Ambiance
+- alias: Adjust Light Ambiance
   trigger:
     - entity_id: input_select.light_ambiance
       platform: state
