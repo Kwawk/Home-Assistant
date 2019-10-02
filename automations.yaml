@@ -99,6 +99,21 @@
       data_template:
         entity_id: switch.desk_lamp
 
+# Switch 3 - Simple click.
+#   -> Turn ON/OFF Entrance.
+- alias: Entrance on/off on switch click
+  trigger:
+    - event_data:
+        event: 1002
+        id: switch_3
+      event_type: deconz_event
+      platform: event
+  condition: []
+  action:
+    - service: homeassistant.toggle
+      data_template:
+        entity_id: group.entrance
+
 #####################################
 ## Water sensors.                  ##
 #####################################
