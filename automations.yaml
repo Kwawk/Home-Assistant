@@ -129,6 +129,33 @@
       data_template:
         entity_id: switch.78638353ecfabc96c763 # Extractor.
 
+# Tradfri Switch 1 - Simple click ON.
+#   -> Turn ON Home.
+- alias: Home on on switch ON click
+  trigger:
+    - event_data:
+        event: 1002
+        id: tradfri_switch_1
+      event_type: deconz_event
+      platform: event
+  condition: []
+  action:
+    - service: script.home_on
+
+# Tradfri Switch 1 - Simple click OFF.
+#   -> Turn OFF Home.
+- alias: Home off on switch OFF click
+  trigger:
+    - event_data:
+        event: 2002
+        id: tradfri_switch_1
+      event_type: deconz_event
+      platform: event
+  condition: []
+  action:
+    - service: script.home_off
+
+
 #####################################
 ## Water sensors.                  ##
 #####################################
