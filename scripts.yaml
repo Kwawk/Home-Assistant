@@ -120,7 +120,7 @@ light_ambiance_red:
 
 # Turn off home.
 home_off:
-  alias: Turn off home lights
+  alias: Turn off home
   sequence:
     - alias: Turn off home lights
       service: homeassistant.turn_off
@@ -157,4 +157,4 @@ redfire_off:
       entity_id: switch.redfire
     - service: notify.lg_tv
       data_template:
-        message: 'PC - Extinction en cours' 
+        message: 'PC - Extinction en cours'
