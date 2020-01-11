@@ -208,15 +208,6 @@ device_tracker:
   # https://www.home-assistant.io/components/bbox/
   - platform: bbox
     host: '192.168.1.254'
-  # Bluetooth.
-  # https://www.home-assistant.io/components/bluetooth_tracker/
-  - platform: bluetooth_tracker
-  # Bluetooth Low Energy.
-  # https://www.home-assistant.io/components/bluetooth_le_tracker/
-  - platform: bluetooth_le_tracker
-    interval_seconds: 10
-    # To disable when devices appear in known_devices.
-    track_new_devices: False
 
 
 #####################################
