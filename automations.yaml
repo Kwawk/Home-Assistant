@@ -129,6 +129,21 @@
       data_template:
         entity_id: switch.78638353ecfabc96c763 # Extractor.
 
+# Switch 5 - Simple click.
+#   -> Turn ON/OFF Bathroom.
+- alias: Bathroom on/off on switch click
+  trigger:
+    - event_data:
+        event: 1002
+        id: switch_5
+      event_type: deconz_event
+      platform: event
+  condition: []
+  action:
+    - service: homeassistant.toggle
+      data_template:
+        entity_id: group.bathroom
+
 # Tradfri Switch 1 - Simple click ON.
 #   -> Turn ON Home.
 - alias: Home on on switch ON click
