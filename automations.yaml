@@ -115,11 +115,26 @@
         entity_id: group.entrance
 
 # Switch 4 - Simple click.
-#   -> Turn ON/OFF Extractor.
-- alias: Extractor on/off on switch click
+#   -> Turn ON Kitchen lights.
+- alias: Kitchen on on switch click
   trigger:
     - event_data:
         event: 1002
+        id: switch_4
+      event_type: deconz_event
+      platform: event
+  condition: []
+  action:
+    - service: homeassistant.turn_on
+      data_template:
+        entity_id: group.kitchen
+
+# Switch 4 - Double click.
+#   -> Turn OFF kitchen extractor.
+- alias: Extractor off on switch double click
+  trigger:
+    - event_data:
+        event: 1004
         id: switch_4
       event_type: deconz_event
       platform: event
