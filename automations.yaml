@@ -222,7 +222,7 @@
   condition: []
   action:
     - service: media_player.select_source
-      data:
+      data_template:
         entity_id: media_player.lg_tv
         source: '{{ states.input_select.tv_channel.state }}'
 
