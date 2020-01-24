@@ -39,7 +39,7 @@
 - alias: Turn on entrance lights for 1 minute on door open
   trigger:
     - platform: state
-      entity_id: binary_sensor.openclose_10
+      entity_id: binary_sensor.door_1
       from: 'off'
       to: 'on'
   condition:

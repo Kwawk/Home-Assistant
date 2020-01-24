@@ -181,7 +181,7 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "binary_sensor.openclose_10"
+                                            "entity": "binary_sensor.door_1"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -278,7 +278,7 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "binary_sensor.openclose_10"
+                                            "entity": "binary_sensor.door_1"
                                         }
                                     ],
                                     "show_header_toggle": false,
