@@ -135,7 +135,7 @@
                                     "type": "picture-elements"
                                 },
                                 {
-                                    "entity": "weather.studio",
+                                    "entity": "weather.home",
                                     "show_header_toggle": false,
                                     "type": "weather-forecast"
                                 },
