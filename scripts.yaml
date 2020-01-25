@@ -82,7 +82,7 @@ light_ambiance_desk_focus:
     - alias: Desk lamp on
       service: switch.turn_on
       data:
-        entity_id: switch.desk_lamp
+        entity_id: switch.78638353ecfabc9b4420
     - alias: Desk leds in blue
       service: light.turn_on
       data:

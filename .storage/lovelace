@@ -339,7 +339,7 @@
                                     "entity": "light.desk_leds"
                                 },
                                 {
-                                    "entity": "switch.desk_lamp"
+                                    "entity": "switch.78638353ecfabc9b4420"
                                 }
                             ],
                             "show_header_toggle": true,

@@ -29,7 +29,7 @@
 
   desk_lights:
     entities:
-      - switch.desk_lamp
+      - switch.78638353ecfabc9b4420
 
   home_lights:
     entities:

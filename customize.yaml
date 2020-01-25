@@ -35,7 +35,7 @@ light.espace_de_loisirs_1:
 ## Switches.                       ##
 #####################################
 
-switch.desk_lamp:
+switch.78638353ecfabc9b4420:
   icon: 'mdi:desk-lamp'
   friendly_name: Lampe de bureau
 
