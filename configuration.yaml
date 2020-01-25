@@ -267,7 +267,8 @@ input_select:
       - PS4
       - Chromecast
       - Netflix
-      - Youtube
+      - YouTube
+      - 'Amazon Prime Video'
     initial: None
   light_ambiance:
     options:
