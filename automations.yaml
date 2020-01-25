@@ -224,7 +224,7 @@
     - service: media_player.select_source
       data:
         entity_id: media_player.lg_tv
-        source: '{{ trigger.to_state.state | string }}'
+        source: '{{ states.input_select.tv_channel.state }}'
 
 # Selection - Light ambiance.
 #   -> Adjust light ambiance.
