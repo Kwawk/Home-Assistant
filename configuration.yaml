@@ -61,12 +61,9 @@ light:
 
 # LG WebOS - Media player.
 # https://www.home-assistant.io/components/webostv/
-media_player:
-  - platform: webostv
+webostv:
     host: '192.168.1.60'
     name: 'lg_tv'
-    filename: webostv.conf
-    timeout: 5
     turn_on_action:
       service: wake_on_lan.send_magic_packet
       data:
@@ -99,18 +96,14 @@ cast:
 # https://www.home-assistant.io/docs/ecosystem/ios/
 ios:
 
+# Media player.
+# https://www.home-assistant.io/integrations/media_player/
+media_player:
+
 
 #####################################
 ## Services.                       ##
 #####################################
-
-notify:
-  # LG WebOS - Notifications.
-  # https://www.home-assistant.io/components/webostv/
-  - platform: webostv
-    host: '192.168.1.60'
-    name: 'lg_tv'
-    filename: webostv.conf
 
 # Text to speech.
 # https://www.home-assistant.io/components/tts/
