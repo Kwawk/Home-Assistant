@@ -165,6 +165,11 @@ shell_command:
   # https://www.wikihow.com/Remotely-Shutdown-a-Computer
   turn_off_target: !secret turn_off_redfire
 
+# HACS - HA Community store.
+# https://hacs.xyz/docs/installation/manual
+hacs:
+  token: !secret hacs_github_token
+
 
 #####################################
 ## Zones.                          ##
