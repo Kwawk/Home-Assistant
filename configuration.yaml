@@ -81,7 +81,7 @@ webostv:
 # https://www.home-assistant.io/components/deconz/
 # https://community.home-assistant.io/t/how-to-configure-deconz-conbee-in-docker/79149
 deconz:
-  host: 192.168.1.30
+  host: 192.168.1.40
   port: 4043
 
 # Google cast.
