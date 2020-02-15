@@ -230,6 +230,17 @@
 ## Other automations.              ##
 #####################################
 
+# Sun - Sunset.
+#   -> Turn on home lights.
+# https://www.home-assistant.io/cookbook/automation_sun/
+- alias: Turn on home lights at sunset
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:45:00"
+  action:
+    - service: script.smooth_home_on
+
 # Selection - Volume.
 #   -> Adjust TV Volume.
 - alias: Adjust TV Volume
