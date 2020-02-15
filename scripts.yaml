@@ -128,6 +128,18 @@ home_off:
         entity_id:
           - group.home
 
+# Turn on home lights smoothly.
+smooth_home_on:
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id:
+          - group.living_room_lights
+          - group.kitchen_lights
+        brightness: 200
+        # 1800 seconds = 30 minutes.
+        transition: 1800
+
 # Turn on home lights.
 home_on:
   alias: Turn on home lights
