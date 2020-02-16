@@ -122,7 +122,7 @@ light_ambiance_red:
 home_off:
   alias: Turn off home
   sequence:
-    - alias: Turn off home lights
+    - alias: Turn off home
       service: homeassistant.turn_off
       data:
         entity_id:
@@ -145,7 +145,7 @@ home_on:
   alias: Turn on home lights
   sequence:
     - alias: Turn on home lights
-      service: homeassistant.turn_on
+      service: light.turn_on
       data:
         entity_id:
           - group.living_room_lights
