@@ -28,6 +28,17 @@
   action:
     service: homeassistant.turn_off
     entity_id: group.bathroom_lights
+# LightLevel 1 - No movement during 24 hours.
+#   -> Set home in sleep mode.
+- alias: Set home in sleep mode 24 hours after last movement
+  trigger:
+    entity_id: binary_sensor.lightlevel_1
+    platform: state
+    to: 'off'
+    for:
+      hours: 24
+  action:
+    - service: script.set_home_asleep
 
 
 #####################################
@@ -36,6 +47,7 @@
 
 # OpenClose 10 - Open.
 #   -> Turn ON Entrance lights for 2 minutes.
+#      AND Set home in awake mode.
 - alias: Turn on entrance lights on door open
   trigger:
     - platform: state
@@ -47,6 +59,7 @@
       entity_id: group.entrance_lights
       state: 'off' 
   action:
+    - service: script.set_home_awake
     - service: homeassistant.turn_on
       entity_id: group.entrance_lights
     - delay: '00:02:00'
