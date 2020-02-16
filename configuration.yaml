@@ -154,6 +154,12 @@ shell_command:
   # https://www.wikihow.com/Remotely-Shutdown-a-Computer
   turn_off_target: !secret turn_off_redfire
 
+# Spotify.
+# https://www.home-assistant.io/integrations/spotify/
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
 # HACS - HA Community store.
 # https://hacs.xyz/docs/installation/manual
 hacs:
