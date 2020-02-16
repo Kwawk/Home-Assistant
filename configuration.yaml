@@ -207,11 +207,11 @@ person:
   - name: Francois
     id: francois
     device_trackers:
-      - device_tracker.iphone_de_francois
+      - device_tracker.oneplus_a6013
   - name: Rabeb
     id: rabeb
     device_trackers:
-      - device_tracker.iphone_de_rabeb
+      - device_tracker.oneplus_a6000
 
 
 #####################################
