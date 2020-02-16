@@ -143,14 +143,6 @@ sensor:
       - 'time_utc'
       - 'beat'
 
-# Speedtest - Done every 60 minutes.
-# https://www.home-assistant.io/components/speedtestdotnet/
-speedtestdotnet:
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
 # Shopping list.
 # https://www.home-assistant.io/components/shopping_list/
 shopping_list:
