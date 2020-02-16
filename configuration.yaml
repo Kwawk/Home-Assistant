@@ -265,3 +265,10 @@ input_number:
     min: 0
     max: 1
     step: 0.01
+
+# Input booleans.
+# https://www.home-assistant.io/integrations/input_boolean/
+input_boolean:
+  home_awake:
+    name: Is home awake
+    initial: on
