@@ -115,6 +115,25 @@ light_ambiance_red:
 
 
 #####################################
+## Home awake/asleep.              ##
+#####################################
+
+# Set home in awake mode.
+set_home_awake:
+  alias: Set home in awake mode
+  sequence:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.home_awake
+
+# Set home in sleep mode.
+set_home_asleep:
+  alias: Set home in sleep mode
+  sequence:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.home_awake
+
+
+#####################################
 ## Other scripts.                  ##
 #####################################
 
