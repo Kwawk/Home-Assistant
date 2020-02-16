@@ -35,8 +35,8 @@
 #####################################
 
 # OpenClose 10 - Open.
-#   -> Turn ON Entrance lights for 1 minute.
-- alias: Turn on entrance lights for 1 minute on door open
+#   -> Turn ON Entrance lights for 2 minutes.
+- alias: Turn on entrance lights on door open
   trigger:
     - platform: state
       entity_id: binary_sensor.door_1
@@ -49,7 +49,7 @@
   action:
     - service: homeassistant.turn_on
       entity_id: group.entrance_lights
-    - delay: '00:01:00'
+    - delay: '00:02:00'
     - service: homeassistant.turn_off
       entity_id: group.entrance_lights
 
