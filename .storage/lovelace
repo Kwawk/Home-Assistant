@@ -22,7 +22,7 @@
                 },
                 {
                     "type": "module",
-                    "url": "/local/mini-media-player.js"
+                    "url": "/community_plugin/mini-media-player/mini-media-player-bundle.js"
                 }
             ],
             "styles": {
@@ -256,6 +256,67 @@
                     "badges": [],
                     "cards": [
                         {
+                            "entities": [
+                                {
+                                    "entity": "light.fan_1"
+                                },
+                                {
+                                    "entity": "light.fan_2"
+                                },
+                                {
+                                    "entity": "light.fan_3"
+                                },
+                                {
+                                    "style": {
+                                        "background": "#62717b",
+                                        "height": "1px",
+                                        "margin": "auto",
+                                        "width": "80%"
+                                    },
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "switch.redfire"
+                                },
+                                {
+                                    "entity": "switch.lg_tv",
+                                    "icon": "mdi:television-classic",
+                                    "name": "LG TV"
+                                },
+                                {
+                                    "style": {
+                                        "background": "#62717b",
+                                        "height": "1px",
+                                        "margin": "auto",
+                                        "width": "80%"
+                                    },
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "sensor.temperature_1"
+                                },
+                                {
+                                    "entity": "sensor.temperature_1_2"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Salon",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.desk_leds"
+                                },
+                                {
+                                    "entity": "switch.78638353ecfabc9b4420"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Bureau",
+                            "type": "entities"
+                        },
+                        {
                             "cards": [
                                 {
                                     "entities": [
@@ -336,19 +397,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.desk_leds"
-                                },
-                                {
-                                    "entity": "switch.78638353ecfabc9b4420"
-                                }
-                            ],
-                            "show_header_toggle": true,
-                            "title": "Bureau",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "light.bathroom_1"
                                 },
                                 {
@@ -373,54 +421,6 @@
                             "show_header_toggle": false,
                             "title": "Salle de bain",
                             "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "light.fan_1"
-                                },
-                                {
-                                    "entity": "light.fan_2"
-                                },
-                                {
-                                    "entity": "light.fan_3"
-                                },
-                                {
-                                    "style": {
-                                        "background": "#62717b",
-                                        "height": "1px",
-                                        "margin": "auto",
-                                        "width": "80%"
-                                    },
-                                    "type": "divider"
-                                },
-                                {
-                                    "entity": "switch.redfire"
-                                },
-                                {
-                                    "entity": "switch.lg_tv",
-                                    "icon": "mdi:television-classic",
-                                    "name": "LG TV"
-                                },
-                                {
-                                    "style": {
-                                        "background": "#62717b",
-                                        "height": "1px",
-                                        "margin": "auto",
-                                        "width": "80%"
-                                    },
-                                    "type": "divider"
-                                },
-                                {
-                                    "entity": "sensor.temperature_1"
-                                },
-                                {
-                                    "entity": "sensor.temperature_1_2"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Salon",
-                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:floor-plan",
@@ -435,7 +435,7 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "updater.updater"
+                                            "entity": "binary_sensor.updater"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -466,49 +466,6 @@
                                     ],
                                     "show_header_toggle": false,
                                     "title": "System monitor",
-                                    "type": "entities"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.speedtest_download",
-                                            "name": "Download"
-                                        },
-                                        {
-                                            "entity": "sensor.speedtest_upload",
-                                            "name": "Upload"
-                                        },
-                                        {
-                                            "entity": "sensor.speedtest_ping",
-                                            "name": "Ping"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "title": "Speedtest",
-                                    "type": "entities"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.bbox_currently_used_upload_bandwidth"
-                                        },
-                                        {
-                                            "entity": "sensor.bbox_currently_used_download_bandwidth"
-                                        },
-                                        {
-                                            "entity": "sensor.bbox_maximum_upload_bandwidth"
-                                        },
-                                        {
-                                            "entity": "sensor.bbox_maximum_download_bandwidth"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "title": "Bbox",
                                     "type": "entities"
                                 }
                             ],
@@ -573,7 +530,22 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "automation.turn_on_entrance_lights_for_1_minute_on_door_open"
+                                            "entity": "automation.turn_on_entrance_lights_on_door_open"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "automation.turn_on_home_lights_at_sunset"
+                                        },
+                                        {
+                                            "entity": "automation.turn_off_home_lights_at_night"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -592,19 +564,6 @@
                 {
                     "badges": [],
                     "cards": [
-                        [
-                            {
-                                "artwork": "cover",
-                                "entity": "media_player.lg_tv",
-                                "hide": {
-                                    "power_state": false,
-                                    "source": true,
-                                    "volume": true
-                                },
-                                "icon": "mdi:spotify",
-                                "type": "custom:mini-media-player"
-                            }
-                        ],
                         {
                             "entities": [
                                 {
@@ -614,6 +573,9 @@
                                 {
                                     "entity": "person.rabeb",
                                     "icon": "mdi:human-female"
+                                },
+                                {
+                                    "entity": "input_boolean.home_awake"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -650,6 +612,19 @@
                                 }
                             ],
                             "type": "custom:vertical-stack-in-card"
+                        },
+                        {
+                            "artwork": "none",
+                            "entity": "media_player.lg_tv",
+                            "hide": {
+                                "power": true,
+                                "power_state": false,
+                                "source": false,
+                                "volume": false
+                            },
+                            "icon": "mdi:television-classic",
+                            "name": "LG TV",
+                            "type": "custom:mini-media-player"
                         }
                     ],
                     "title": "WIP"
