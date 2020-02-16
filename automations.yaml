@@ -238,6 +238,10 @@
     platform: sun
     event: sunset
     offset: "-00:45:00"
+  condition:
+    condition: state
+    entity_id: input_boolean.home_awake
+    state: 'on'
   action:
     - service: script.smooth_home_on
 
