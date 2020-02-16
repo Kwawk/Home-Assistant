@@ -111,15 +111,6 @@ tts:
   - platform: google_translate
 
 sensor:
-  # Bbox.
-  # https://www.home-assistant.io/components/bbox/
-  - platform: bbox
-    monitored_variables:
-      - down_max_bandwidth
-      - up_max_bandwidth
-      - current_down_bandwidth
-      - current_up_bandwidth
-
   # Home Assistant system monitor.
   # https://www.home-assistant.io/components/systemmonitor/
   - platform: systemmonitor
@@ -194,10 +185,6 @@ zone:
 # Device trackers.
 # https://www.home-assistant.io/components/device_tracker/
 device_tracker:
-  # Bbox.
-  # https://www.home-assistant.io/components/bbox/
-  - platform: bbox
-    host: '192.168.1.254'
 
 
 #####################################
