@@ -167,8 +167,13 @@ hacs:
 # https://www.home-assistant.io/components/zone/
 zone:
   - name: Sevenhugs
-    latitude: 48.819906
-    longitude: 2.324802
+    latitude: 48.84211
+    longitude: 2.321988
+    radius: 100
+    icon: 'mdi:worker'
+  - name: Netatmo
+    latitude: 48.8298143
+    longitude: 2.2395161
     radius: 100
     icon: 'mdi:worker'
   - name: 'EPITA'
