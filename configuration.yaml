@@ -12,7 +12,7 @@ default_config:
 # Frontend.
 # https://www.home-assistant.io/components/frontend/
 frontend:
-  themes: !include_dir_merge_named ../themes
+  themes: !include_dir_merge_named themes
   javascript_version: latest
 
 # Groups.
