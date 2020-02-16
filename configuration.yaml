@@ -96,6 +96,11 @@ cast:
 # https://www.home-assistant.io/docs/ecosystem/ios/
 ios:
 
+# Companion app.
+# https://companion.home-assistant.io/docs/getting_started/getting-started
+mobile_app:
+discovery:
+
 # Media player.
 # https://www.home-assistant.io/integrations/media_player/
 media_player:
