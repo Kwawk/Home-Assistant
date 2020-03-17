@@ -40,8 +40,8 @@ switch.78638353ecfabc9b4420:
   friendly_name: Lampe de bureau
 
 switch.056042563c71bf28403e:
-  icon: 'mdi:toaster-oven'
-  friendly_name: Grille pain
+  icon: 'mdi:cloud-outline'
+  friendly_name: Mr Nuage
 
 switch.78638353ecfabc96c763:
   icon: 'mdi:fan'
