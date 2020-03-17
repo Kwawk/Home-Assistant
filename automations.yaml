@@ -2,19 +2,41 @@
 ## Motion sensors.                 ##
 #####################################
 
-# LightLevel 1 - Movement.
-#   -> Turn ON Bathroom lights.
-- alias: Turn on bathroom lights on move
+# LightLevel 1 - Movement during day.
+#   -> Turn ON Bathroom lights (Brightness 200).
+- alias: Turn on bathroom lights on move during day
   trigger:
     - entity_id: binary_sensor.lightlevel_1
       from: 'off'
       platform: state
       to: 'on'
-  condition: []
+  condition:
+    - condition: time
+      after: '08:30:00'
+      before: '01:00:00'
   action:
     - service: homeassistant.turn_on
-      data: {}
-      entity_id: group.bathroom_lights
+      data_template:
+        entity_id: group.bathroom_lights
+        brightness: 200
+
+# LightLevel 1 - Movement during night.
+#   -> Turn ON Bathroom lights (Brightness 50).
+- alias: Turn on bathroom lights on move during night
+  trigger:
+    - entity_id: binary_sensor.lightlevel_1
+      from: 'off'
+      platform: state
+      to: 'on'
+  condition:
+    - condition: time
+      after: '01:00:00'
+      before: '08:30:00'
+  action:
+    - service: homeassistant.turn_on
+      data_template:
+        entity_id: light.bathroom_1
+        brightness: 50
 
 # LightLevel 1 - No movement during 10 minutes.
 #   -> Turn OFF Bathroom lights.
