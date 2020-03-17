@@ -29,7 +29,11 @@
 
   desk_lights:
     entities:
-      - switch.78638353ecfabc9b4420
+      - switch.78638353ecfabc9b4420 # Desk lamp.
+
+  media_center_lights:
+    entities:
+      - switch.056042563c71bf28403e # Cloud.
 
   home_lights:
     entities:
@@ -38,6 +42,7 @@
       - group.kitchen_lights
       - group.bathroom_lights
       - group.desk_lights
+      - group.media_center_lights
 
 
 #####################################
@@ -51,7 +56,6 @@
   living_room:
     entities:
       - group.living_room_lights
-      - media_player.lg_tv
 
   kitchen:
     entities:
@@ -66,6 +70,11 @@
     entities:
       - group.desk_lights
 
+  media_center:
+    entities:
+      - group.media_center_lights
+      - media_player.lg_tv
+
   home:
     entities:
       - group.entrance
@@ -73,3 +82,4 @@
       - group.kitchen
       - group.bathroom
       - group.desk
+      - group.media_center
