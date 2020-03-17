@@ -71,9 +71,6 @@
                                     "entities": [
                                         {
                                             "entity": "switch.78638353ecfabc96c763"
-                                        },
-                                        {
-                                            "entity": "switch.056042563c71bf28403e"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -83,13 +80,13 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "switch.redfire",
-                                            "name": "Red Fire"
+                                            "entity": "switch.056042563c71bf28403e"
                                         },
                                         {
-                                            "entity": "switch.lg_tv",
-                                            "icon": "mdi:television-classic",
-                                            "name": "LG TV"
+                                            "entity": "switch.redfire"
+                                        },
+                                        {
+                                            "entity": "switch.lg_tv"
                                         },
                                         {
                                             "entity": "input_select.tv_channel"
@@ -135,17 +132,44 @@
                                     "type": "picture-elements"
                                 },
                                 {
-                                    "entity": "weather.home",
+                                    "entities": [
+                                        {
+                                            "entity": "person.francois"
+                                        },
+                                        {
+                                            "entity": "person.rabeb"
+                                        }
+                                    ],
                                     "show_header_toggle": false,
-                                    "type": "weather-forecast"
+                                    "title": "Pr\u00e9sence",
+                                    "type": "entities"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "sensor.temperature_1"
+                                            "entity": "sensor.netatmo_weather_indoor_temperature"
                                         },
                                         {
-                                            "entity": "sensor.temperature_1_2"
+                                            "entity": "sensor.netatmo_weather_indoor_humidity"
+                                        },
+                                        {
+                                            "entity": "sensor.netatmo_weather_indoor_noise"
+                                        },
+                                        {
+                                            "entity": "sensor.netatmo_weather_indoor_co2"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Bien \u00eatre",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.door_1"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.door_2"
                                         },
                                         {
                                             "style": {
@@ -172,20 +196,11 @@
                                             "entity": "binary_sensor.lightlevel_1"
                                         },
                                         {
-                                            "style": {
-                                                "background": "#62717b",
-                                                "height": "1px",
-                                                "margin": "auto",
-                                                "width": "80%"
-                                            },
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.door_1"
+                                            "entity": "binary_sensor.door_3"
                                         }
                                     ],
                                     "show_header_toggle": false,
-                                    "title": "Capteurs",
+                                    "title": "S\u00e9curit\u00e9",
                                     "type": "entities"
                                 }
                             ],
@@ -241,6 +256,16 @@
                                         }
                                     ],
                                     "type": "custom:vertical-stack-in-card"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "script.home_off"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Scripts",
+                                    "type": "entities"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -276,6 +301,9 @@
                                     "type": "divider"
                                 },
                                 {
+                                    "entity": "switch.056042563c71bf28403e"
+                                },
+                                {
                                     "entity": "switch.redfire"
                                 },
                                 {
@@ -293,10 +321,10 @@
                                     "type": "divider"
                                 },
                                 {
-                                    "entity": "sensor.temperature_1"
+                                    "entity": "sensor.netatmo_weather_indoor_temperature"
                                 },
                                 {
-                                    "entity": "sensor.temperature_1_2"
+                                    "entity": "sensor.netatmo_weather_indoor_humidity"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -372,9 +400,6 @@
                                             "entity": "switch.78638353ecfabc96c763"
                                         },
                                         {
-                                            "entity": "switch.056042563c71bf28403e"
-                                        },
-                                        {
                                             "style": {
                                                 "background": "#62717b",
                                                 "height": "1px",
@@ -398,6 +423,15 @@
                             "entities": [
                                 {
                                     "entity": "light.bathroom_1"
+                                },
+                                {
+                                    "entity": "light.mirror_1"
+                                },
+                                {
+                                    "entity": "light.mirror_2"
+                                },
+                                {
+                                    "entity": "light.mirror_3"
                                 },
                                 {
                                     "style": {
@@ -472,11 +506,24 @@
                             "type": "vertical-stack"
                         },
                         {
+                            "entities": [
+                                {
+                                    "entity": "automation.home_asleep_automation"
+                                },
+                                {
+                                    "entity": "automation.home_awake_automation"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Home awake/asleep automations",
+                            "type": "entities"
+                        },
+                        {
                             "cards": [
                                 {
                                     "entities": [
                                         {
-                                            "entity": "automation.rabeb_is_home"
+                                            "entity": "automation.bathroom_on_off_on_switch_click"
                                         },
                                         {
                                             "style": {
@@ -488,10 +535,49 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "automation.turn_on_bathroom_lights_on_move"
+                                            "entity": "automation.desk_lamp_on_off_on_switch_click"
                                         },
                                         {
-                                            "entity": "automation.turn_off_bathroom_lights_10_minutes_after_last_movement"
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "automation.entrance_on_off_on_switch_click"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "automation.home_on_on_switch_on_click"
+                                        },
+                                        {
+                                            "entity": "automation.home_off_on_switch_off_click"
+                                        },
+                                        {
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "automation.kitchen_on_on_switch_click"
+                                        },
+                                        {
+                                            "entity": "automation.extractor_off_on_switch_double_click"
                                         },
                                         {
                                             "style": {
@@ -507,53 +593,85 @@
                                         },
                                         {
                                             "entity": "automation.redfire_off_on_switch_double_click"
-                                        },
-                                        {
-                                            "style": {
-                                                "background": "#62717b",
-                                                "height": "1px",
-                                                "margin": "auto",
-                                                "width": "80%"
-                                            },
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "automation.trig_water_leak_script_on_kitchen_water_leak"
-                                        },
-                                        {
-                                            "style": {
-                                                "background": "#62717b",
-                                                "height": "1px",
-                                                "margin": "auto",
-                                                "width": "80%"
-                                            },
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "automation.turn_on_entrance_lights_on_door_open"
-                                        },
-                                        {
-                                            "style": {
-                                                "background": "#62717b",
-                                                "height": "1px",
-                                                "margin": "auto",
-                                                "width": "80%"
-                                            },
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "automation.turn_on_home_lights_at_sunset"
-                                        },
-                                        {
-                                            "entity": "automation.turn_off_home_lights_at_night"
                                         }
                                     ],
                                     "show_header_toggle": false,
-                                    "title": "Automations",
+                                    "title": "Switches automations",
                                     "type": "entities"
                                 }
                             ],
                             "type": "custom:vertical-stack-in-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.turn_on_entrance_lights_on_door_open"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Door sensors automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.turn_on_home_lights_at_sunset"
+                                },
+                                {
+                                    "entity": "automation.turn_off_home_lights_at_night_1"
+                                },
+                                {
+                                    "entity": "automation.turn_off_home_lights_at_night_2"
+                                },
+                                {
+                                    "entity": "automation.turn_off_home_lights_at_night_3"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Time automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.trig_water_leak_script_on_kitchen_water_leak"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Water sensors automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.turn_on_bathroom_lights_on_move_during_day"
+                                },
+                                {
+                                    "entity": "automation.turn_on_bathroom_lights_on_move_during_night"
+                                },
+                                {
+                                    "entity": "automation.turn_off_bathroom_lights_10_minutes_after_last_movement"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Motion sensors automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.adjust_tv_volume"
+                                },
+                                {
+                                    "entity": "automation.adjust_tv_channel"
+                                },
+                                {
+                                    "entity": "automation.adjust_light_ambiance"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Other automations",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:toolbox-outline",
@@ -564,24 +682,6 @@
                 {
                     "badges": [],
                     "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "person.francois",
-                                    "icon": "mdi:human-male"
-                                },
-                                {
-                                    "entity": "person.rabeb",
-                                    "icon": "mdi:human-female"
-                                },
-                                {
-                                    "entity": "input_boolean.home_awake"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Pr\u00e9sence",
-                            "type": "entities"
-                        },
                         {
                             "cards": [
                                 {
@@ -617,6 +717,7 @@
                             "artwork": "none",
                             "entity": "media_player.lg_tv",
                             "hide": {
+                                "controls": true,
                                 "power": true,
                                 "power_state": false,
                                 "source": false,
@@ -624,6 +725,42 @@
                             },
                             "icon": "mdi:television-classic",
                             "name": "LG TV",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "artwork": "none",
+                            "entity": "media_player.spotify_fr_bertet",
+                            "hide": {
+                                "power": true,
+                                "power_state": false,
+                                "source": false,
+                                "volume": false
+                            },
+                            "icon": "mdi:music",
+                            "name": "Spotify",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.netatmo_camera",
+                            "entities": [],
+                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                            "theme": "Backend-selected",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "entity": "media_player.playstation_4",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.playstation_4",
+                            "hide": {
+                                "controls": true,
+                                "power": false,
+                                "power_state": false,
+                                "source": true,
+                                "volume": true
+                            },
                             "type": "custom:mini-media-player"
                         }
                     ],
@@ -633,7 +770,7 @@
                     "badges": [],
                     "cards": [
                         {
-                            "content": "\n### SOME INTEGRATIONS\nOK - https://www.home-assistant.io/components/webostv/\nOK - https://www.home-assistant.io/components/flux_led/\nOK - https://community.home-assistant.io/t/tuya-integration/82459/54\nTODO - https://www.home-assistant.io/components/xiaomi_aqara/\nOK - https://www.home-assistant.io/components/bbox/\nTODO - https://www.home-assistant.io/components/spotify/\nOK - https://www.home-assistant.io/components/speedtestdotnet/\nTODO - https://www.home-assistant.io/components/googlehome/\nOK - https://www.home-assistant.io/components/shopping_list/\n\n---\n\n### ZONES & PERSON\nhttps://www.home-assistant.io/components/zone/\nhttps://www.home-assistant.io/components/person/\nhttps://www.home-assistant.io/components/device_tracker/\nhttps://www.home-assistant.io/getting-started/presence-detection/\n\n---\n\n### NOTIFICATIONS\nhttps://thingsmatic.com/2017/11/10/home-assistant-notifications-on-ios/\nhttps://www.home-assistant.io/docs/ecosystem/ios/notifications/\nhttps://www.home-assistant.io/docs/ecosystem/ios/notifications/actions/\n\n---\n\n### ZIGBEE\nhttps://presentationdeconz.wordpress.com/\nhttps://www.home-assistant.io/components/deconz/#binary-sensor\n* Xiaomi Smart Home Security Door & Window Contact Sensor\n* Xiaomi Motion Sensor\n\nhttps://community.home-assistant.io/t/difference-between-deconz-and-zha-conbee-stick/93568/8\n\n---\n\n### PC - Wake on Lan\nhttps://www.home-assistant.io/components/wake_on_lan/\nhttps://dszigeti.wordpress.com/2010/10/14/asus-p7p55d-enable-wake-on-lan-wol/\nhttps://pypi.org/project/wakeonlan/\n\n---\n\n### CEC\nhttps://www.home-assistant.io/components/hdmi_cec/\n\n---\n\n### IR\n\n--- \n\n### Automations\n\nhttps://community.home-assistant.io/t/help-with-automation-trigger-when-sensor-temp-is-higher-lower-than-weather/59957/2\n",
+                            "content": "\n### SOME INTEGRATIONS\nOK - https://www.home-assistant.io/components/webostv/\nOK - https://www.home-assistant.io/components/flux_led/\nOK - https://community.home-assistant.io/t/tuya-integration/82459/54\nOK - https://www.home-assistant.io/components/xiaomi_aqara/\nOK - https://www.home-assistant.io/components/bbox/\nTODO - https://www.home-assistant.io/components/spotify/\nOK - https://www.home-assistant.io/components/speedtestdotnet/\nTODO - https://www.home-assistant.io/components/googlehome/\nOK - https://www.home-assistant.io/components/shopping_list/\n\n---\n\n### ZONES & PERSON\nhttps://www.home-assistant.io/components/zone/\nhttps://www.home-assistant.io/components/person/\nhttps://www.home-assistant.io/components/device_tracker/\nhttps://www.home-assistant.io/getting-started/presence-detection/\n\n---\n\n### NOTIFICATIONS\nhttps://thingsmatic.com/2017/11/10/home-assistant-notifications-on-ios/\nhttps://www.home-assistant.io/docs/ecosystem/ios/notifications/\nhttps://www.home-assistant.io/docs/ecosystem/ios/notifications/actions/\n\n---\n\n### ZIGBEE\nhttps://presentationdeconz.wordpress.com/\nhttps://www.home-assistant.io/components/deconz/#binary-sensor\n* Xiaomi Smart Home Security Door & Window Contact Sensor\n* Xiaomi Motion Sensor\n\nhttps://community.home-assistant.io/t/difference-between-deconz-and-zha-conbee-stick/93568/8\n\n---\n\n### PC - Wake on Lan\nhttps://www.home-assistant.io/components/wake_on_lan/\nhttps://dszigeti.wordpress.com/2010/10/14/asus-p7p55d-enable-wake-on-lan-wol/\nhttps://pypi.org/project/wakeonlan/\n\n---\n\n### CEC\nhttps://www.home-assistant.io/components/hdmi_cec/\n\n---\n\n### IR\n\n--- \n\n### Automations\n\nhttps://community.home-assistant.io/t/help-with-automation-trigger-when-sensor-temp-is-higher-lower-than-weather/59957/2\n",
                             "title": "Links",
                             "type": "markdown"
                         },
