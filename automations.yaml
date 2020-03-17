@@ -61,7 +61,8 @@
     for:
       hours: 24
   action:
-    - service: script.set_home_asleep
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.home_awake
 
 
 #####################################
@@ -82,7 +83,8 @@
       entity_id: group.entrance_lights
       state: 'off' 
   action:
-    - service: script.set_home_awake
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.home_awake
     - service: homeassistant.turn_on
       data_template:
         entity_id: group.entrance_lights
@@ -263,6 +265,42 @@
       message: iPhone de Rabeb connecté au Wi-Fi
       title: Rabeb est à la maison
     service: notify.ios_iphone_de_francois
+
+
+#####################################
+## Home awake/asleep.              ##
+#####################################
+
+# Boolean - Home is awake.
+#   -> Notify.
+- alias: Home awake automation
+  trigger:
+    - entity_id: input_boolean.home_awake
+      from: 'off'
+      platform: state
+      to: 'on'
+  condition: []
+  action:
+    - service: notify.all_devices
+      data_template:
+        title: 'Home state changed'
+        message: "Awake" 
+
+# Boolean - Home is asleep.
+#   -> Notify and turn off home.
+- alias: Home asleep automation
+  trigger:
+    - entity_id: input_boolean.home_awake
+      from: 'on'
+      platform: state
+      to: 'off'
+  condition: []
+  action:
+    - service: script.home_off
+    - service: notify.all_devices
+      data_template:
+        title: 'Home state changed'
+        message: "Asleep" 
 
 
 #####################################
