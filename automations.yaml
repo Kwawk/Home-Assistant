@@ -84,7 +84,9 @@
   action:
     - service: script.set_home_awake
     - service: homeassistant.turn_on
-      entity_id: group.entrance_lights
+      data_template:
+        entity_id: group.entrance_lights
+        brightness: 200
     - delay: '00:02:00'
     - service: homeassistant.turn_off
       entity_id: group.entrance_lights
@@ -149,6 +151,7 @@
     - service: homeassistant.toggle
       data_template:
         entity_id: group.entrance
+        brightness: 200
 
 # Switch 4 - Simple click.
 #   -> Turn ON Kitchen lights.
