@@ -80,6 +80,13 @@ binary_sensor.door_1:
   icon: 'mdi:door'
   friendly_name: Porte d'entrée
 
+binary_sensor.door_2:
+  icon: 'mdi:window-closed'
+  friendly_name: Portes fenêtres
+
+binary_sensor.door_3:
+  icon: 'mdi:washing-machine'
+  friendly_name: Lave linge
 
 #####################################
 ## Media players.                  ##
