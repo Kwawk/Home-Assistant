@@ -102,6 +102,8 @@ ios:
 mobile_app:
 discovery:
 
+# Notify.
+# https://www.home-assistant.io/integrations/notify/
 notify:
   - platform: group
     name: all_devices
