@@ -304,7 +304,7 @@
 
 
 #####################################
-## Other automations.              ##
+## Lights depending on daytime.    ##
 #####################################
 
 # Sun - Sunset.
@@ -325,7 +325,7 @@
 # Time - Midnight.
 #   -> Turn off home lights.
 # https://www.home-assistant.io/docs/automation/trigger/
-- alias: Turn off home lights at night
+- alias: Turn off home lights at night 1
   trigger:
     platform: time
     at: "22:00:00"
@@ -334,13 +334,55 @@
     entity_id: input_boolean.home_awake
     state: 'on'
   action:
-    - service: light.turn_off
+    - service: light.turn_on
       data_template:
         entity_id:
           - group.living_room_lights
           - group.kitchen_lights
-        # 10800 seconds = 3 hours.
-        transition: 10800
+        brightness: 135
+        # 3600 seconds = 1 hour.
+        transition: 3600
+   
+- alias: Turn off home lights at night 2
+  trigger:
+    platform: time
+    at: "23:00:00"
+  condition:
+    condition: state
+    entity_id: input_boolean.home_awake
+    state: 'on'
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id:
+          - group.living_room_lights
+          - group.kitchen_lights
+        brightness: 67
+        # 3600 seconds = 1 hour.
+        transition: 3600
+
+- alias: Turn off home lights at night 3
+  trigger:
+    platform: time
+    at: "00:00:00"
+  condition:
+    condition: state
+    entity_id: input_boolean.home_awake
+    state: 'on'
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id:
+          - group.living_room_lights
+          - group.kitchen_lights
+        brightness: 1
+        # 3600 seconds = 1 hour.
+        transition: 3600
+
+
+#####################################
+## Other automations.              ##
+#####################################
 
 # Selection - Volume.
 #   -> Adjust TV Volume.
