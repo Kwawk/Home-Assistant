@@ -156,7 +156,7 @@ water_leak:
   alias: 'Script used in case of water leak'
   sequence:
     - service: script.light_ambiance_red
-    - service: notify.ios_iphone_de_francois
+    - service: notify.all_devices
       data_template:
         title: 'Fuite détectée'
         message: "{{ place }}" 
