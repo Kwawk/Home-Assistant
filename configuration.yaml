@@ -102,6 +102,14 @@ ios:
 mobile_app:
 discovery:
 
+notify:
+  - platform: group
+    name: all_devices
+    services:
+      - service: lg_tv
+      - service: mobile_app_oneplus_a6013
+      - service: mobile_app_oneplus_a6000
+
 # Media player.
 # https://www.home-assistant.io/integrations/media_player/
 media_player:
