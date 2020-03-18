@@ -159,6 +159,36 @@ sensor:
     monitored_conditions:
       - icon
 
+  # Will it rain today?
+  # https://www.reddit.com/r/homeassistant/comments/bmmhhs/your_solution_to_will_it_rain_today/
+  - platform: template
+    sensors:
+      rain_today:
+        value_template:
+          "{% if is_state('sensor.dark_sky_icon_0d', 'clear-day') %}\
+          false\
+          {% elif is_state('sensor.dark_sky_icon_0d', 'clear-night') %}\
+          false\
+          {% elif is_state('sensor.dark_sky_icon_0d', 'rain') %}\
+          true\
+          {% elif is_state('sensor.dark_sky_icon_0d', 'snow') %}\
+          true\
+          {% elif is_state('sensor.dark_sky_icon_0d', 'sleet') %}\
+          true\
+          {% elif is_state('sensor.dark_sky_icon_0d', 'wind') %}\
+          false\
+          {% elif is_state('sensor.dark_sky_icon_0d', 'fog') %}\
+          false\
+          {% elif is_state('sensor.dark_sky_icon_0d', 'cloudy') %}\
+          false\
+          {% elif is_state('sensor.dark_sky_icon_0d', 'partly-cloudy-day') %}\
+          false\
+          {% elif is_state('sensor.dark_sky_icon_0d', 'partly-cloudy-night') %}\
+          false\
+          {% else %}\
+          false\
+          {% endif %}"
+
 # Shopping list.
 # https://www.home-assistant.io/components/shopping_list/
 shopping_list:
