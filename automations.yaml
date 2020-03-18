@@ -316,9 +316,9 @@
     event: sunset
     offset: "-00:45:00"
   condition:
-    condition: state
-    entity_id: input_boolean.home_awake
-    state: 'on'
+    - condition: state
+      entity_id: input_boolean.home_awake
+      state: 'on'
   action:
     - service: script.smooth_home_on
 
@@ -330,9 +330,9 @@
     platform: time
     at: "22:00:00"
   condition:
-    condition: state
-    entity_id: input_boolean.home_awake
-    state: 'on'
+    - condition: state
+      entity_id: input_boolean.home_awake
+      state: 'on'
   action:
     - service: light.turn_on
       data_template:
@@ -348,9 +348,9 @@
     platform: time
     at: "23:00:00"
   condition:
-    condition: state
-    entity_id: input_boolean.home_awake
-    state: 'on'
+    - condition: state
+      entity_id: input_boolean.home_awake
+      state: 'on'
   action:
     - service: light.turn_on
       data_template:
@@ -366,12 +366,12 @@
     platform: time
     at: "00:00:00"
   condition:
-    condition: state
-    entity_id: input_boolean.home_awake
-    state: 'on'
+    - condition: state
+      entity_id: input_boolean.home_awake
+      state: 'on'
   action:
     - service: light.turn_on
-      data_template:
+      data_template: 
         entity_id:
           - group.living_room_lights
           - group.kitchen_lights
