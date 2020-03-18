@@ -381,6 +381,31 @@
 
 
 #####################################
+## Weather.                        ##
+#####################################
+
+# Weather - Raining today?
+#   -> Turn on/off cloud light at 07:00.
+- alias: Turn on cloud light if it will rain today
+  trigger:
+    platform: time
+    at: "07:00:00"
+  condition:
+    - condition: state
+      entity_id: input_boolean.home_awake
+      state: 'on'
+  action:
+    - service_template:
+        "{% if is_state('sensor.rain_today', 'true') %}\
+          switch.turn_on\
+        {% else %}\
+          switch.turn_off\
+        {% endif %}"
+      entity_id:
+        - switch.056042563c71bf28403e # Cloud.
+
+
+#####################################
 ## Other automations.              ##
 #####################################
 
