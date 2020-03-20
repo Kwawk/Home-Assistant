@@ -406,6 +406,37 @@
 
 
 #####################################
+## Laundry machine.                ##
+#####################################
+
+# Door 3 - Closed.
+#   -> Start laundry machine timer.
+- alias: Start laundry machine timer on door closed
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_3
+      from: 'on'
+      to: 'off'
+  action:
+    - service: timer.start
+      entity_id: timer.laundry_machine
+
+# Timer - Laundry machine run out.
+#   -> Notify.
+- alias: Notify when laundry_machine timer finishes
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.laundry_machine
+  action:
+    - service: notify.all_devices
+      data:
+        title: 'Machine terminée!'
+        message: "Il est temps de l'étendre :-)"
+
+
+#####################################
 ## Other automations.              ##
 #####################################
 
