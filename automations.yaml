@@ -69,7 +69,7 @@
 ## Door sensors.                   ##
 #####################################
 
-# OpenClose 10 - Open.
+# Door 1 - Open.
 #   -> Turn ON Entrance lights for 2 minutes.
 #      AND Set home in awake mode.
 - alias: Turn on entrance lights on door open
