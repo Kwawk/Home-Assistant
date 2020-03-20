@@ -672,6 +672,16 @@
                             "show_header_toggle": false,
                             "title": "Other automations",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.turn_on_cloud_light_if_it_will_rain_today"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Weather automations",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:toolbox-outline",
@@ -762,6 +772,29 @@
                                 "volume": true
                             },
                             "type": "custom:mini-media-player"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.dark_sky_icon_0d"
+                                },
+                                {
+                                    "entity": "sensor.rain_today"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "sensor.netatmo_weather_indoor_co2",
+                            "max": 2000,
+                            "min": 0,
+                            "severity": {
+                                "green": 0,
+                                "red": 2000,
+                                "yellow": 1000
+                            },
+                            "theme": "default",
+                            "type": "gauge"
                         }
                     ],
                     "title": "WIP"
