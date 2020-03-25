@@ -421,6 +421,18 @@
     - service: timer.start
       entity_id: timer.laundry_machine
 
+# Door 3 - Open.
+#   -> Cancel laundry machine timer.
+- alias: Cancel laundry machine timer on door open
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_3
+      from: 'off'
+      to: 'on'
+  action:
+    - service: timer.cancel
+      entity_id: timer.laundry_machine
+
 # Timer - Laundry machine run out.
 #   -> Notify.
 - alias: Notify when laundry_machine timer finishes
