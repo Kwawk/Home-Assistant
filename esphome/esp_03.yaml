@@ -1,0 +1,77 @@
+esphome:
+  name: esp_03
+  platform: ESP32
+  board: esp-wrover-kit
+
+wifi:
+  ssid: "LoulouBox"
+  password: "3CE2A1A26A654A71CE1F267EF273D1"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp 03 Fallback Hotspot"
+    password: "Hzhlfisbysiv"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "q28j7!j36!$X"
+
+ota:
+  password: "q28j7!j36!$X"
+
+light:
+  - platform: neopixelbus
+    type: GRB
+    pin: GPIO3
+    num_leds: 53
+    name: 'tv_ledstrip'
+    effects:
+      - random:
+          name: 'fast_random'
+          transition_length: 4s
+          update_interval: 5s
+          
+      - addressable_scan: 
+          name: 'fast_scan'
+          move_interval: 100ms
+          scan_width: 4
+          
+      - addressable_flicker:
+          name: 'flicker'
+          update_interval: 16ms
+          intensity: 5%
+          
+      - addressable_color_wipe:
+          name: 'fast_wipe'
+          colors:
+            - num_leds: 53
+              red: 75%
+              blue: 25%
+              green: 25%
+          add_led_interval: 500ms
+          
+      - strobe:
+          name: 'blue_strobe'
+          colors: 
+            - state: True
+              duration: 500ms
+              brightness: 75%
+              red: 0%
+              green: 75%
+              blue: 100%
+            - state: False
+              duration: 500ms
+              
+      - addressable_color_wipe:
+          name: 'blue_wipe_95min'
+          colors:
+            - num_leds: 53
+              red: 0%
+              green: 75%
+              blue: 100%
+          add_led_interval: 108s
