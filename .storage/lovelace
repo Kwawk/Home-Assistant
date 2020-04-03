@@ -83,22 +83,54 @@
                                             "entity": "switch.056042563c71bf28403e"
                                         },
                                         {
-                                            "entity": "switch.redfire"
-                                        },
-                                        {
                                             "entity": "switch.lg_tv"
                                         },
                                         {
-                                            "entity": "input_select.tv_channel"
-                                        },
-                                        {
-                                            "entity": "input_number.tv_volume",
-                                            "icon": "mdi:volume-high"
+                                            "entity": "light.tv_ledstrip"
                                         }
                                     ],
                                     "show_header_toggle": false,
                                     "title": "Media",
                                     "type": "entities"
+                                },
+                                {
+                                    "artwork": "none",
+                                    "entity": "media_player.lg_tv",
+                                    "hide": {
+                                        "controls": true,
+                                        "power": true,
+                                        "power_state": false,
+                                        "source": false,
+                                        "volume": false
+                                    },
+                                    "icon": "mdi:television-classic",
+                                    "name": "LG TV",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.playstation_4",
+                                    "hide": {
+                                        "controls": true,
+                                        "power": false,
+                                        "power_state": false,
+                                        "source": true,
+                                        "volume": true
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.spotify_fr_bertet",
+                                    "hide": {
+                                        "power": true,
+                                        "power_state": false,
+                                        "source": false,
+                                        "volume": false
+                                    },
+                                    "icon": "mdi:music",
+                                    "name": "Spotify",
+                                    "type": "custom:mini-media-player"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -154,14 +186,24 @@
                                         },
                                         {
                                             "entity": "sensor.netatmo_weather_indoor_noise"
-                                        },
-                                        {
-                                            "entity": "sensor.netatmo_weather_indoor_co2"
                                         }
                                     ],
                                     "show_header_toggle": false,
                                     "title": "Bien \u00eatre",
                                     "type": "entities"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_weather_indoor_co2",
+                                    "max": 2000,
+                                    "min": 0,
+                                    "name": "C02",
+                                    "severity": {
+                                        "green": 0,
+                                        "red": 2000,
+                                        "yellow": 1000
+                                    },
+                                    "theme": "default",
+                                    "type": "gauge"
                                 },
                                 {
                                     "entities": [
@@ -213,7 +255,7 @@
                                         "input_select.light_ambiance"
                                     ],
                                     "show_header_toggle": false,
-                                    "title": "Ambiances",
+                                    "title": "Ambiance",
                                     "type": "entities"
                                 },
                                 {
@@ -325,6 +367,24 @@
                                 },
                                 {
                                     "entity": "sensor.netatmo_weather_indoor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_weather_indoor_noise"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_weather_indoor_co2"
+                                },
+                                {
+                                    "style": {
+                                        "background": "#62717b",
+                                        "height": "1px",
+                                        "margin": "auto",
+                                        "width": "80%"
+                                    },
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "binary_sensor.door_2"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -447,9 +507,7 @@
                                     "name": "Pr\u00e9sence"
                                 },
                                 {
-                                    "entity": "sensor.lightlevel_1",
-                                    "icon": "mdi:brightness-6",
-                                    "name": "Luminosit\u00e9"
+                                    "entity": "binary_sensor.door_3"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -516,6 +574,35 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Home awake/asleep automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.turn_on_entrance_lights_on_door_open"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Door sensors automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.turn_on_home_lights_at_sunset"
+                                },
+                                {
+                                    "entity": "automation.turn_off_home_lights_at_night_1"
+                                },
+                                {
+                                    "entity": "automation.turn_off_home_lights_at_night_2"
+                                },
+                                {
+                                    "entity": "automation.turn_off_home_lights_at_night_3"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Time automations",
                             "type": "entities"
                         },
                         {
@@ -605,35 +692,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "automation.turn_on_entrance_lights_on_door_open"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Door sensors automations",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "automation.turn_on_home_lights_at_sunset"
-                                },
-                                {
-                                    "entity": "automation.turn_off_home_lights_at_night_1"
-                                },
-                                {
-                                    "entity": "automation.turn_off_home_lights_at_night_2"
-                                },
-                                {
-                                    "entity": "automation.turn_off_home_lights_at_night_3"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Time automations",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "automation.trig_water_leak_script_on_kitchen_water_leak"
                                 }
                             ],
@@ -681,6 +739,22 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Weather automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.start_laundry_machine_timer_on_door_closed"
+                                },
+                                {
+                                    "entity": "automation.cancel_laundry_machine_timer_on_door_open"
+                                },
+                                {
+                                    "entity": "automation.notify_when_laundry_machine_timer_finishes"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Laundry machine automations",
                             "type": "entities"
                         }
                     ],
@@ -756,6 +830,7 @@
                             "entities": [],
                             "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
                             "theme": "Backend-selected",
+                            "title": "Camera",
                             "type": "picture-glance"
                         },
                         {
@@ -763,6 +838,7 @@
                             "type": "media-control"
                         },
                         {
+                            "artwork": "cover",
                             "entity": "media_player.playstation_4",
                             "hide": {
                                 "controls": true,
@@ -780,6 +856,21 @@
                                 },
                                 {
                                     "entity": "sensor.rain_today"
+                                },
+                                {
+                                    "entity": "timer.laundry_machine"
+                                },
+                                {
+                                    "entity": "sun.sun"
+                                },
+                                {
+                                    "entity": "light.tv_leds"
+                                },
+                                {
+                                    "entity": "light.red_led"
+                                },
+                                {
+                                    "entity": "light.tv_ledstrip"
                                 }
                             ],
                             "type": "entities"
@@ -795,6 +886,29 @@
                             },
                             "theme": "default",
                             "type": "gauge"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.056042563c71bf28403e"
+                                },
+                                {
+                                    "entity": "switch.redfire"
+                                },
+                                {
+                                    "entity": "switch.lg_tv"
+                                },
+                                {
+                                    "entity": "input_select.tv_channel"
+                                },
+                                {
+                                    "entity": "input_number.tv_volume",
+                                    "icon": "mdi:volume-high"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Media",
+                            "type": "entities"
                         }
                     ],
                     "title": "WIP"
