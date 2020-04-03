@@ -465,6 +465,44 @@
 
 
 #####################################
+## TV automations.                 ##
+#####################################
+
+# LG TV - Turn on.
+#   -> Turn on tv ledstrip.
+- alias: Turn on tv ledstrip on tv start
+  trigger:
+    - entity_id: media_player.lg_tv
+      from: 'off'
+      platform: state
+      to: 'on'
+  condition: []
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tv_ledstrip
+        brightness: 200
+        rgb_color:
+          - 255
+          - 190
+          - 0
+
+# LG TV - Turn off.
+#   -> Turn off tv ledstrip.
+- alias: Turn off tv ledstrip on tv stop
+  trigger:
+    - entity_id: media_player.lg_tv
+      from: 'on'
+      platform: state
+      to: 'off'
+  condition: []
+  action:
+    - service: light.turn_off
+      data_template:
+        entity_id: light.tv_ledstrip
+
+
+#####################################
 ## Other automations.              ##
 #####################################
 
