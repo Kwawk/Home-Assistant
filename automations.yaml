@@ -411,6 +411,7 @@
 
 # Door 3 - Closed.
 #   -> Start laundry machine timer.
+#      AND start orange_wipe_95min effect on led strip.
 - alias: Start laundry machine timer on door closed
   trigger:
     - platform: state
@@ -420,6 +421,13 @@
   action:
     - service: timer.start
       entity_id: timer.laundry_machine
+    - service: light.turn_off
+      data_template:
+        entity_id: light.tv_ledstrip
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tv_ledstrip
+        effect: 'blue_wipe_95min'
 
 # Door 3 - Open.
 #   -> Cancel laundry machine timer.
@@ -432,6 +440,10 @@
   action:
     - service: timer.cancel
       entity_id: timer.laundry_machine
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tv_ledstrip
+        effect: 'None'
 
 # Timer - Laundry machine run out.
 #   -> Notify.
@@ -446,6 +458,10 @@
       data:
         title: 'Machine terminée!'
         message: "Il est temps de l'étendre :-)"
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tv_ledstrip
+        effect: 'blue_strobe'
 
 
 #####################################
