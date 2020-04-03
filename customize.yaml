@@ -27,6 +27,13 @@ light.desk_leds:
 light.bathroom_1:
   friendly_name: Salle de bain 1
 
+light.mirror_1:
+  friendly_name: Miroir 1
+light.mirror_2:
+  friendly_name: Miroir 2
+light.mirror_3:
+  friendly_name: Miroir 3
+
 light.espace_de_loisirs_1:
   hidden: true
 
