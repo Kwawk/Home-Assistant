@@ -20,9 +20,14 @@ light.fan_2:
   friendly_name: Ventilateur 2
 light.fan_3:
   friendly_name: Ventilateur 3
+
 light.desk_leds:
   icon: 'mdi:led-variant-on'
   friendly_name: Ruban de leds
+
+light.tv_ledstrip:
+  icon: 'mdi:led-variant-on'
+  friendly_name: Ruban de leds TV
 
 light.bathroom_1:
   friendly_name: Salle de bain 1
