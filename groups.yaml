@@ -34,6 +34,7 @@
   media_center_lights:
     entities:
       - switch.056042563c71bf28403e # Cloud.
+      - light.tv_ledstrip
 
   home_lights:
     entities:
