@@ -322,8 +322,10 @@
   action:
     - service: script.smooth_home_on
 
-# Time - Midnight.
-#   -> Turn off home lights.
+# Time - 22:00.
+#   -> Start to decrease home brightness smoothly until 23:00.
+# Good to know: This automation is done in 3 steps because
+#  transition mechanism does not handle a value like 10800.
 # https://www.home-assistant.io/docs/automation/trigger/
 - alias: Turn off home lights at night 1
   trigger:
@@ -332,6 +334,9 @@
   condition:
     - condition: state
       entity_id: input_boolean.home_awake
+      state: 'on'
+    - condition: state
+      entity_id: group.living_room_lights
       state: 'on'
   action:
     - service: light.turn_on
@@ -343,6 +348,9 @@
         # 3600 seconds = 1 hour.
         transition: 3600
    
+# Time - 23:00.
+#   -> Continue to decrease home brightness smoothly
+#      until 00:00.
 - alias: Turn off home lights at night 2
   trigger:
     platform: time
@@ -350,6 +358,9 @@
   condition:
     - condition: state
       entity_id: input_boolean.home_awake
+      state: 'on'
+    - condition: state
+      entity_id: group.living_room_lights
       state: 'on'
   action:
     - service: light.turn_on
@@ -361,6 +372,9 @@
         # 3600 seconds = 1 hour.
         transition: 3600
 
+# Time - 00:00.
+#   -> Continue to decrease home brightness smoothly
+#      until 01:00.
 - alias: Turn off home lights at night 3
   trigger:
     platform: time
@@ -368,6 +382,9 @@
   condition:
     - condition: state
       entity_id: input_boolean.home_awake
+      state: 'on'
+    - condition: state
+      entity_id: group.living_room_lights
       state: 'on'
   action:
     - service: light.turn_on
