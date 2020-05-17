@@ -535,12 +535,15 @@
 
 # LG TV - Turn off.
 #   -> Turn off tv ledstrip.
+# Good to know: The TV state is not really stable, so
+#   we wait 20 seconds to avoid false positive.
 - alias: Turn off tv ledstrip on tv stop
   trigger:
     - entity_id: media_player.lg_tv
-      from: 'on'
       platform: state
       to: 'off'
+      for:
+        seconds: 20
   condition: []
   action:
     - service: light.turn_off
