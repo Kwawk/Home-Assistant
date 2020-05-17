@@ -398,6 +398,35 @@
 
 
 #####################################
+## CO2.                            ##
+#####################################
+
+# CO2 - High (Over 1000)
+#   -> Trig fast_scan effect on tv ledstrip.
+- alias: Trig an effect on tv ledstrip when CO2 is above 1000
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.netatmo_weather_indoor_co2
+    above: 1000
+    below: 1500
+  condition:
+    - condition: state
+      entity_id: light.tv_ledstrip
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data_template: 
+        entity_id: light.tv_ledstrip
+        effect: 'fast_scan'
+    - delay:
+        seconds: 15
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tv_ledstrip
+        effect: 'None'
+    
+
+#####################################
 ## Weather.                        ##
 #####################################
 
