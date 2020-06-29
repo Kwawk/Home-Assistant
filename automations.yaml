@@ -137,7 +137,7 @@
   action:
     - service: switch.toggle
       data_template:
-        entity_id: switch.78638353ecfabc9b4420
+        entity_id: switch.78638353ecfabc9b4420 # Desk lamp.
 
 # Switch 3 - Simple click.
 #   -> Turn ON/OFF Entrance.
