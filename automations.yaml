@@ -183,7 +183,7 @@
   action:
     - service: switch.toggle
       data_template:
-        entity_id: switch.78638353ecfabc96c763 # Extractor.
+        entity_id: switch.056042563c71bf28403e # Extractor.
 
 # Switch 5 - Simple click.
 #   -> Turn ON/OFF Bathroom.
@@ -448,7 +448,7 @@
           switch.turn_off\
         {% endif %}"
       entity_id:
-        - switch.056042563c71bf28403e # Cloud.
+        - switch.78638353ecfabc96c763 # Cloud.
 
 
 #####################################

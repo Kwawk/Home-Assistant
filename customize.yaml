@@ -51,11 +51,11 @@ switch.78638353ecfabc9b4420:
   icon: 'mdi:desk-lamp'
   friendly_name: Lampe de bureau
 
-switch.056042563c71bf28403e:
+switch.78638353ecfabc96c763:
   icon: 'mdi:cloud-outline'
   friendly_name: Mr Nuage
 
-switch.78638353ecfabc96c763:
+switch.056042563c71bf28403e:
   icon: 'mdi:fan'
   friendly_name: Hotte aspirante
 

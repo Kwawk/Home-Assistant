@@ -70,7 +70,7 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "switch.78638353ecfabc96c763"
+                                            "entity": "switch.056042563c71bf28403e"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -80,7 +80,7 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "switch.056042563c71bf28403e"
+                                            "entity": "switch.78638353ecfabc96c763"
                                         },
                                         {
                                             "entity": "switch.lg_tv"
@@ -343,7 +343,7 @@
                                     "type": "divider"
                                 },
                                 {
-                                    "entity": "switch.056042563c71bf28403e"
+                                    "entity": "switch.78638353ecfabc96c763"
                                 },
                                 {
                                     "entity": "switch.redfire"
@@ -457,7 +457,7 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "switch.78638353ecfabc96c763"
+                                            "entity": "switch.056042563c71bf28403e"
                                         },
                                         {
                                             "style": {
@@ -890,7 +890,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.056042563c71bf28403e"
+                                    "entity": "switch.78638353ecfabc96c763"
                                 },
                                 {
                                     "entity": "switch.redfire"

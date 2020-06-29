@@ -33,7 +33,7 @@
 
   media_center_lights:
     entities:
-      - switch.056042563c71bf28403e # Cloud.
+      - switch.78638353ecfabc96c763 # Cloud.
       - light.tv_ledstrip
 
   home_lights:
@@ -61,7 +61,7 @@
   kitchen:
     entities:
       - group.kitchen_lights
-      - switch.78638353ecfabc96c763 # Extractor.
+      - switch.056042563c71bf28403e # Extractor.
 
   bathroom:
     entities:
