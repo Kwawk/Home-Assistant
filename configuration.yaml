@@ -39,82 +39,34 @@ homeassistant:
 
 # Hue bridge - Philips hue bulbs.
 # https://www.home-assistant.io/components/hue/
-hue:
-  bridges:
-    - host: '192.168.1.37'
 
 # Tuya - SmartLife plugs and switches.
 # https://www.home-assistant.io/components/tuya/
-tuya:
-  platform: smart_life
-  username: !secret tuya_username
-  password: !secret tuya_password
-  country_code: 33
 
 # MagicHome - Leds strip.
 # https://www.home-assistant.io/components/flux_led/
-light:
-  - platform: flux_led
-    devices:
-      192.168.1.31:
-        name: 'desk_leds'
 
 # LG WebOS - Media player.
 # https://www.home-assistant.io/components/webostv/
-webostv:
-    host: '192.168.1.60'
-    name: 'lg_tv'
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret lg_tv_mac_address
-    customize:
-      sources:
-        - 'youtube'
-        - 'netflix'
-        - 'PC'
-        - 'Chromecast'
-        - 'PS4'
-        - 'HDMI Switch'
 
 # Deconz.
 # https://www.home-assistant.io/components/deconz/
 # https://community.home-assistant.io/t/how-to-configure-deconz-conbee-in-docker/79149
-deconz:
-  host: 192.168.1.40
-  port: 4043
 
 # Google cast.
 # https://www.home-assistant.io/components/cast/
-cast:
-  media_player:
-    - host: '192.168.1.36'
-    - host: '192.168.1.39'
-    - host: '192.168.1.41'
-    - host: '192.168.1.61'
 
 # iOS - Notifications and tracking.
 # https://www.home-assistant.io/docs/ecosystem/ios/
-ios:
 
 # Companion app.
 # https://companion.home-assistant.io/docs/getting_started/getting-started
-mobile_app:
-discovery:
 
 # Notify.
 # https://www.home-assistant.io/integrations/notify/
-notify:
-  - platform: group
-    name: all_devices
-    services:
-      - service: lg_tv
-      - service: mobile_app_oneplus_a6013
-      - service: mobile_app_oneplus_a6000
 
 # Media player.
 # https://www.home-assistant.io/integrations/media_player/
-media_player:
 
 
 #####################################
@@ -123,8 +75,6 @@ media_player:
 
 # Text to speech.
 # https://www.home-assistant.io/components/tts/
-tts:
-  - platform: google_translate
 
 sensor:
   # Home Assistant system monitor.
@@ -152,12 +102,6 @@ sensor:
 
  # Dark Sky - Weather.
  # https://www.home-assistant.io/integrations/darksky/
-  - platform: darksky
-    api_key: !secret darksky_api_key
-    forecast:
-      - 0
-    monitored_conditions:
-      - icon
 
   # Will it rain today?
   # https://www.reddit.com/r/homeassistant/comments/bmmhhs/your_solution_to_will_it_rain_today/
@@ -191,34 +135,18 @@ sensor:
 
 # Shopping list.
 # https://www.home-assistant.io/components/shopping_list/
-shopping_list:
 
 # Wake on lan - For Kwak RedFire.
 # https://www.home-assistant.io/components/wake_on_lan/
-wake_on_lan:
-
-# Shell commands.
-shell_command:
-  # To enbale it on Windows, follow method 1 of
-  # https://www.wikihow.com/Remotely-Shutdown-a-Computer
-  turn_off_target: !secret turn_off_redfire
 
 # Spotify.
 # https://www.home-assistant.io/integrations/spotify/
-spotify:
-  client_id: !secret spotify_client_id
-  client_secret: !secret spotify_client_secret
 
 # HACS - HA Community store.
 # https://hacs.xyz/docs/installation/manual
-hacs:
-  token: !secret hacs_github_token
 
 # Netatmo.
 # https://www.home-assistant.io/integrations/netatmo
-netatmo:
-  client_id: !secret netatmo_client_id
-  client_secret: !secret netatmo_client_secret
 
 
 #####################################
