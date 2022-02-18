@@ -2,11 +2,11 @@
 ## Motion sensors.                 ##
 #####################################
 
-# LightLevel 1 - Movement during day.
+# Bathroom motion sensor - Movement during day.
 #   -> Turn ON Bathroom lights (Brightness 200).
 - alias: Turn on bathroom lights on move during day
   trigger:
-    - entity_id: binary_sensor.lightlevel_1
+    - entity_id: binary_sensor.bathroom_motion_sensor
       from: 'off'
       platform: state
       to: 'on'
@@ -20,11 +20,11 @@
         entity_id: group.bathroom_lights
         brightness: 200
 
-# LightLevel 1 - Movement during night.
+# Bathroom motion sensor - Movement during night.
 #   -> Turn ON Bathroom lights (Brightness 50).
 - alias: Turn on bathroom lights on move during night
   trigger:
-    - entity_id: binary_sensor.lightlevel_1
+    - entity_id: binary_sensor.bathroom_motion_sensor
       from: 'off'
       platform: state
       to: 'on'
@@ -38,11 +38,11 @@
         entity_id: light.bathroom_1
         brightness: 50
 
-# LightLevel 1 - No movement during 10 minutes.
+# Bathroom motion sensor - No movement during 10 minutes.
 #   -> Turn OFF Bathroom lights.
 - alias: Turn off bathroom lights 10 minutes after last movement
   trigger:
-    entity_id: binary_sensor.lightlevel_1
+    entity_id: binary_sensor.bathroom_motion_sensor
     platform: state
     to: 'off'
     for:
@@ -51,11 +51,11 @@
     - service: homeassistant.turn_off
       entity_id: group.bathroom_lights
 
-# LightLevel 1 - No movement during 24 hours.
+# Bathroom motion sensor - No movement during 24 hours.
 #   -> Set home in sleep mode.
 - alias: Set home in sleep mode 24 hours after last movement
   trigger:
-    entity_id: binary_sensor.lightlevel_1
+    entity_id: binary_sensor.bathroom_motion_sensor
     platform: state
     to: 'off'
     for:
@@ -69,13 +69,13 @@
 ## Door sensors.                   ##
 #####################################
 
-# Door 1 - Open.
+# Entrance door sensor - Open.
 #   -> Turn ON Entrance lights for 2 minutes.
 #      AND Set home in awake mode.
 - alias: Turn on entrance lights on door open
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_1
+      entity_id: binary_sensor.entrance_door_sensor
       from: 'off'
       to: 'on'
   condition:
@@ -98,41 +98,41 @@
 ## Switches.                       ##
 #####################################
 
-# Switch 1 - Simple click.
+# Coffee table switch - Simple click.
 #   -> Turn OFF Home lights.
 - alias: Home off on switch click
   trigger:
     - event_data:
         event: 1002
-        id: switch_1
+        id: coffee_table_switch
       event_type: deconz_event
       platform: event
   condition: []
   action:
     - service: script.home_off
 
-# Switch 2 - Simple click.
+# Desk switch - Simple click.
 #   -> Turn ON/OFF Desk lamp.
 - alias: Desk lamp on/off on switch click
   trigger:
     - event_data:
         event: 1002
-        id: switch_2
+        id: desk_switch
       event_type: deconz_event
       platform: event
   condition: []
   action:
     - service: switch.toggle
       data_template:
-        entity_id: switch.78638353ecfabc9b4420 # Desk lamp.
+        entity_id: switch.desk_lamp
 
-# Switch 3 - Simple click.
+# Entrance switch - Simple click.
 #   -> Turn ON/OFF Entrance.
 - alias: Entrance on/off on switch click
   trigger:
     - event_data:
         event: 1002
-        id: switch_3
+        id: entrance_switch
       event_type: deconz_event
       platform: event
   condition: []
@@ -142,13 +142,13 @@
         entity_id: group.entrance
         brightness: 200
 
-# Switch 4 - Simple click.
+# Kitchen switch - Simple click.
 #   -> Turn ON Kitchen lights.
 - alias: Kitchen on on switch click
   trigger:
     - event_data:
         event: 1002
-        id: switch_4
+        id: kitchen_switch
       event_type: deconz_event
       platform: event
   condition: []
@@ -157,28 +157,28 @@
       data_template:
         entity_id: group.kitchen
 
-# Switch 4 - Double click.
+# Kitchen switch - Double click.
 #   -> Turn OFF kitchen extractor.
 - alias: Extractor off on switch double click
   trigger:
     - event_data:
         event: 1004
-        id: switch_4
+        id: kitchen_switch
       event_type: deconz_event
       platform: event
   condition: []
   action:
     - service: switch.toggle
       data_template:
-        entity_id: switch.056042563c71bf28403e # Extractor.
+        entity_id: switch.kitchen_ventilation
 
-# Switch 5 - Simple click.
+# Bathroom switch - Simple click.
 #   -> Turn ON/OFF Bathroom.
 - alias: Bathroom on/off on switch click
   trigger:
     - event_data:
         event: 1002
-        id: switch_5
+        id: bathroom_switch
       event_type: deconz_event
       platform: event
   condition: []
@@ -187,26 +187,26 @@
       data_template:
         entity_id: group.bathroom
 
-# Tradfri Switch 1 - Simple click ON.
+# Entrance door switch - Simple click ON.
 #   -> Turn ON Home.
 - alias: Home on on switch ON click
   trigger:
     - event_data:
         event: 1002
-        id: tradfri_switch_1
+        id: entrance_door_switch
       event_type: deconz_event
       platform: event
   condition: []
   action:
     - service: script.home_on
 
-# Tradfri Switch 1 - Simple click OFF.
+# Entrance door switch - Simple click OFF.
 #   -> Turn OFF Home.
 - alias: Home off on switch OFF click
   trigger:
     - event_data:
         event: 2002
-        id: tradfri_switch_1
+        id: entrance_door_switch
       event_type: deconz_event
       platform: event
   condition: []
@@ -218,11 +218,11 @@
 ## Water sensors.                  ##
 #####################################
 
-# Water 1 - Leak.
+# Water sensor - Leak.
 #   -> Trig water_leak script.
 - alias: Trig water_leak script on kitchen water leak
   trigger:
-    - entity_id: binary_sensor.water_1
+    - entity_id: binary_sensor.water_sensor
       from: 'off'
       platform: state
       to: 'on'
@@ -435,20 +435,20 @@
           switch.turn_off\
         {% endif %}"
       entity_id:
-        - switch.78638353ecfabc96c763 # Cloud.
+        - switch.cloud_lamp
 
 
 #####################################
 ## Laundry machine.                ##
 #####################################
 
-# Door 3 - Closed.
+# Washing machine door sensor - Closed.
 #   -> Start laundry machine timer.
 #      AND start orange_wipe_95min effect on led strip.
 - alias: Start laundry machine timer on door closed
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_3
+      entity_id: binary_sensor.washing_machine_door_sensor
       from: 'on'
       to: 'off'
   action:
@@ -462,12 +462,12 @@
         entity_id: light.tv_ledstrip
         effect: 'blue_wipe_95min'
 
-# Door 3 - Open.
+# Washing machine door sensor - Open.
 #   -> Cancel laundry machine timer.
 - alias: Cancel laundry machine timer on door open
   trigger:
     - platform: state
-      entity_id: binary_sensor.door_3
+      entity_id: binary_sensor.washing_machine_door_sensor
       from: 'off'
       to: 'on'
   action:
@@ -542,7 +542,7 @@
 ## Cube automations.               ##
 #####################################
 
-# Xiaomi cube - Turn it.
+# Xiaomi cube - Turn it. FIXME
 #   -> Adjust volume of sonos system.
 # Source: https://community.home-assistant.io/t/filter-out-trigger-values-rotate-xiaomi-cube/65522/17
 - id: cube volume adjust
@@ -551,7 +551,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: cube_1
+      id: cube
   condition:
     # this filters out the cube action if the middle two numbers are 0
     condition: template
