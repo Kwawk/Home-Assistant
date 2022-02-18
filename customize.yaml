@@ -47,15 +47,15 @@ light.espace_de_loisirs_1:
 ## Switches.                       ##
 #####################################
 
-switch.78638353ecfabc9b4420:
+switch.desk_lamp:
   icon: 'mdi:desk-lamp'
   friendly_name: Lampe de bureau
 
-switch.78638353ecfabc96c763:
+switch.cloud_lamp:
   icon: 'mdi:cloud-outline'
   friendly_name: Mr Nuage
 
-switch.056042563c71bf28403e:
+switch.kitchen_ventilation:
   icon: 'mdi:fan'
   friendly_name: Hotte aspirante
 
@@ -68,31 +68,31 @@ switch.lg_tv:
 ## Sensors.                        ##
 #####################################
 
-binary_sensor.lightlevel_1:
+binary_sensor.bathroom_motion_sensor:
   friendly_name: Présence SDB
 
-sensor.lightlevel_1:
+sensor.bathroom_motion_sensor:
   icon: 'mdi:brightness-6'
   friendly_name: Luminosité SDB
 
-binary_sensor.water_1:
+binary_sensor.water_sensor:
   friendly_name: Inondation évier
 
-sensor.temperature_1:
+sensor.temperature_sensor:
   friendly_name: Température
 
-sensor.temperature_1_2:
+sensor.temperature_sensor_2:
   friendly_name: Humidité
 
-binary_sensor.door_1:
+binary_sensor.entrance_door_sensor:
   icon: 'mdi:door'
   friendly_name: Porte d'entrée
 
-binary_sensor.door_2:
+binary_sensor.window_door_sensor:
   icon: 'mdi:window-closed'
   friendly_name: Portes fenêtres
 
-binary_sensor.door_3:
+binary_sensor.washing_machine_door_sensor:
   icon: 'mdi:washing-machine'
   friendly_name: Lave linge
 
@@ -108,16 +108,22 @@ sensor.netatmo_weather_indoor_noise:
 sensor.netatmo_weather_indoor_co2:
   friendly_name: C02 interieur
 
+sensor.netatmo_weather_outdoor_humidity:
+  friendly_name: Humidité Frigo
+
+sensor.netatmo_weather_outdoor_temperature:
+  friendly_name: Température Frigo
+
 
 #####################################
 ## Media players.                  ##
 #####################################
 
-media_player.tv_du_salon:
-  friendly_name: Chromecast
+media_player.chromecast_1:
+  friendly_name: Chromecast 1
 
-media_player.bureau:
-  friendly_name: Google Home Mini
+media_player.chromecast_2:
+  friendly_name: Chromecast 2
 
 
 #####################################
