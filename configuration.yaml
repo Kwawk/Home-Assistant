@@ -37,45 +37,6 @@ homeassistant:
 ## Devices.                        ##
 #####################################
 
-# Hue bridge - Philips hue bulbs.
-# https://www.home-assistant.io/components/hue/
-
-# Tuya - SmartLife plugs and switches.
-# https://www.home-assistant.io/components/tuya/
-
-# MagicHome - Leds strip.
-# https://www.home-assistant.io/components/flux_led/
-
-# LG WebOS - Media player.
-# https://www.home-assistant.io/components/webostv/
-
-# Deconz.
-# https://www.home-assistant.io/components/deconz/
-# https://community.home-assistant.io/t/how-to-configure-deconz-conbee-in-docker/79149
-
-# Google cast.
-# https://www.home-assistant.io/components/cast/
-
-# iOS - Notifications and tracking.
-# https://www.home-assistant.io/docs/ecosystem/ios/
-
-# Companion app.
-# https://companion.home-assistant.io/docs/getting_started/getting-started
-
-# Notify.
-# https://www.home-assistant.io/integrations/notify/
-
-# Media player.
-# https://www.home-assistant.io/integrations/media_player/
-
-
-#####################################
-## Services.                       ##
-#####################################
-
-# Text to speech.
-# https://www.home-assistant.io/components/tts/
-
 sensor:
   # Home Assistant system monitor.
   # https://www.home-assistant.io/components/systemmonitor/
@@ -132,21 +93,6 @@ sensor:
           {% else %}\
           false\
           {% endif %}"
-
-# Shopping list.
-# https://www.home-assistant.io/components/shopping_list/
-
-# Wake on lan - For Kwak RedFire.
-# https://www.home-assistant.io/components/wake_on_lan/
-
-# Spotify.
-# https://www.home-assistant.io/integrations/spotify/
-
-# HACS - HA Community store.
-# https://hacs.xyz/docs/installation/manual
-
-# Netatmo.
-# https://www.home-assistant.io/integrations/netatmo
 
 
 #####################################
