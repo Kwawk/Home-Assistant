@@ -99,7 +99,7 @@ light_ambiance_red:
     - alias: Fan lights in red
       service: light.turn_on
       data:
-        entity_id: light.ventilateur
+        entity_id: light.ventilateur  # FIXME
         brightness: 255
         xy_color:
           - 0.701
