@@ -111,19 +111,6 @@
   action:
     - service: script.home_off
 
-# Switch 1 - Double click.
-#   -> Turn OFF Redfire.
-- alias: Redfire off on switch double click
-  trigger:
-    - event_data:
-        event: 1004
-        id: switch_1
-      event_type: deconz_event
-      platform: event
-  condition: []
-  action:
-    - service: script.redfire_off
-
 # Switch 2 - Simple click.
 #   -> Turn ON/OFF Desk lamp.
 - alias: Desk lamp on/off on switch click

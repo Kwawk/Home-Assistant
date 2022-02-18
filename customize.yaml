@@ -63,10 +63,6 @@ switch.lg_tv:
   icon: 'mdi:television-classic'
   friendly_name: LG TV
 
-switch.redfire:
-  icon: 'mdi:desktop-tower'
-  friendly_name: Red Fire
-
 
 #####################################
 ## Sensors.                        ##
