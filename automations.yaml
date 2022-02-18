@@ -234,27 +234,6 @@
 
 
 #####################################
-## Trackers.                       ##
-#####################################
-
-# Rabeb is Home.
-#   -> Notify Francois iPhone.
-- alias: Rabeb is home
-  trigger:
-  - entity_id: device_tracker.iphone_de_rabeb
-    from: not_home
-    platform: state
-    to: home
-  condition: []
-  action:
-  - alias: ''
-    data:
-      message: iPhone de Rabeb connecté au Wi-Fi
-      title: Rabeb est à la maison
-    service: notify.ios_iphone_de_francois
-
-
-#####################################
 ## Home awake/asleep.              ##
 #####################################
 
