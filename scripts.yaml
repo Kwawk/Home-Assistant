@@ -159,4 +159,4 @@ water_leak:
     - service: notify.all_devices
       data_template:
         title: 'Fuite détectée'
-        message: "{{ place }}" 
+        message: "{{ place }}"

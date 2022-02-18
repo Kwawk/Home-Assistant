@@ -81,7 +81,7 @@
   condition:
     - condition: state
       entity_id: group.entrance_lights
-      state: 'off' 
+      state: 'off'
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.home_awake
@@ -271,7 +271,7 @@
     - service: notify.all_devices
       data_template:
         title: 'Home state changed'
-        message: "Awake" 
+        message: "Awake"
 
 # Boolean - Home is asleep.
 #   -> Notify and turn off home.
@@ -287,7 +287,7 @@
     - service: notify.all_devices
       data_template:
         title: 'Home state changed'
-        message: "Asleep" 
+        message: "Asleep"
 
 
 #####################################
@@ -334,7 +334,7 @@
         brightness: 135
         # 3600 seconds = 1 hour.
         transition: 3600
-   
+
 # Time - 23:00.
 #   -> Continue to decrease home brightness smoothly
 #      until 00:00.
@@ -375,7 +375,7 @@
       state: 'on'
   action:
     - service: light.turn_on
-      data_template: 
+      data_template:
         entity_id:
           - group.living_room_lights
           - group.kitchen_lights
@@ -402,7 +402,7 @@
       state: 'on'
   action:
     - service: light.turn_on
-      data_template: 
+      data_template:
         entity_id: light.tv_ledstrip
         effect: 'fast_scan'
     - delay:
@@ -411,7 +411,7 @@
       data_template:
         entity_id: light.tv_ledstrip
         effect: 'None'
-    
+
 
 #####################################
 ## Weather.                        ##
@@ -544,7 +544,7 @@
 
 # Xiaomi cube - Turn it.
 #   -> Adjust volume of sonos system.
-# Source: https://community.home-assistant.io/t/filter-out-trigger-values-rotate-xiaomi-cube/65522/17 
+# Source: https://community.home-assistant.io/t/filter-out-trigger-values-rotate-xiaomi-cube/65522/17
 - id: cube volume adjust
   alias: cube_volume_adjust
   trigger:
@@ -557,34 +557,34 @@
     condition: template
     value_template: >
       {% set x = trigger.event.data.event|string %}
-      {{ x|length != 4 or x[1:3] != '00' }}      
+      {{ x|length != 4 or x[1:3] != '00' }}
   action:
     - service: media_player.volume_set
       entity_id: media_player.salon
       data_template:
         volume_level: >
-          {% if (trigger.event.data.event > 0) and (trigger.event.data.event | int < 2500) %} 
-            {{ states.media_player.salon.attributes.volume_level | float + 0.1 }} 
-          {% elif (trigger.event.data.event < 0) and (trigger.event.data.event | int > -2500) %} 
-            {{ states.media_player.salon.attributes.volume_level | float - 0.1 }}          
-          {% elif (trigger.event.data.event > 2501) and (trigger.event.data.event < 4000) %} 
-            {{ states.media_player.salon.attributes.volume_level | float + 0.15 }} 
-          {% elif (trigger.event.data.event < -2501) and (trigger.event.data.event | int > -4000) %} 
-            {{ states.media_player.salon.attributes.volume_level | float - 0.15 }}             
-          {% elif (trigger.event.data.event > 4001) and (trigger.event.data.event < 7000) %} 
-            {{ states.media_player.salon.attributes.volume_level | float + 0.2 }} 
-          {% elif (trigger.event.data.event < -4001) and (trigger.event.data.event | int > -7000) %} 
-            {{ states.media_player.salon.attributes.volume_level | float - 0.2 }}              
-          {% elif (trigger.event.data.event > 7001) and (trigger.event.data.event < 110000) %} 
-            {{ states.media_player.salon.attributes.volume_level | float + 0.3 }} 
-          {% elif (trigger.event.data.event < -7001) and (trigger.event.data.event | int > -110001) %} 
-            {{ states.media_player.salon.attributes.volume_level | float - 0.3 }}                    
-          {% elif trigger.event.data.event > 110001 %} 
+          {% if (trigger.event.data.event > 0) and (trigger.event.data.event | int < 2500) %}
+            {{ states.media_player.salon.attributes.volume_level | float + 0.1 }}
+          {% elif (trigger.event.data.event < 0) and (trigger.event.data.event | int > -2500) %}
+            {{ states.media_player.salon.attributes.volume_level | float - 0.1 }}
+          {% elif (trigger.event.data.event > 2501) and (trigger.event.data.event < 4000) %}
+            {{ states.media_player.salon.attributes.volume_level | float + 0.15 }}
+          {% elif (trigger.event.data.event < -2501) and (trigger.event.data.event | int > -4000) %}
+            {{ states.media_player.salon.attributes.volume_level | float - 0.15 }}
+          {% elif (trigger.event.data.event > 4001) and (trigger.event.data.event < 7000) %}
+            {{ states.media_player.salon.attributes.volume_level | float + 0.2 }}
+          {% elif (trigger.event.data.event < -4001) and (trigger.event.data.event | int > -7000) %}
+            {{ states.media_player.salon.attributes.volume_level | float - 0.2 }}
+          {% elif (trigger.event.data.event > 7001) and (trigger.event.data.event < 110000) %}
+            {{ states.media_player.salon.attributes.volume_level | float + 0.3 }}
+          {% elif (trigger.event.data.event < -7001) and (trigger.event.data.event | int > -110001) %}
+            {{ states.media_player.salon.attributes.volume_level | float - 0.3 }}
+          {% elif trigger.event.data.event > 110001 %}
             {{ states.media_player.salon.attributes.volume_level | float + 0.5 }}
-          {% elif trigger.event.data.event < -110001 %} 
-            {{ states.media_player.salon.attributes.volume_level | float - 0.5 }}               
+          {% elif trigger.event.data.event < -110001 %}
+            {{ states.media_player.salon.attributes.volume_level | float - 0.5 }}
           {% else %}
-            {{ states.media_player.salon.attributes.volume_level | float - 0.01 }} 
+            {{ states.media_player.salon.attributes.volume_level | float - 0.01 }}
           {% endif %}
 
 
