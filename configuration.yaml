@@ -135,7 +135,7 @@ person:
   - name: Rabeb
     id: rabeb
     device_trackers:
-      - device_tracker.oneplus_a6000
+      - device_tracker.oneplus_a6000  # FIXME
 
 
 #####################################
