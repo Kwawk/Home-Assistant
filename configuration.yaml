@@ -190,8 +190,7 @@ input_select:
     options:
       - None
       - HDMI Switch
-      - PC
-      - PS4
+      - External
       - Chromecast
       - Netflix
       - YouTube
