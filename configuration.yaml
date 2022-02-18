@@ -61,9 +61,6 @@ sensor:
       - 'time_utc'
       - 'beat'
 
- # Dark Sky - Weather.
- # https://www.home-assistant.io/integrations/darksky/
-
   # Will it rain today?
   # https://www.reddit.com/r/homeassistant/comments/bmmhhs/your_solution_to_will_it_rain_today/
   - platform: template
@@ -122,15 +119,6 @@ zone:
     longitude: !secret home_longitude
     radius: 100
     icon: 'mdi:home'
-
-
-#####################################
-## Devices trackers.               ##
-#####################################
-
-# Device trackers.
-# https://www.home-assistant.io/components/device_tracker/
-device_tracker:
 
 
 #####################################
