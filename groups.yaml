@@ -29,11 +29,11 @@
 
   desk_lights:
     entities:
-      - switch.78638353ecfabc9b4420  # Desk lamp.
+      - switch.desk_lamp
 
   media_center_lights:
     entities:
-      - switch.78638353ecfabc96c763  # Cloud.
+      - switch.cloud_lamp
       - light.tv_ledstrip
 
   home_lights:
@@ -61,7 +61,7 @@
   kitchen:
     entities:
       - group.kitchen_lights
-      - switch.056042563c71bf28403e  # Extractor.
+      - switch.kitchen_ventilation
 
   bathroom:
     entities:
