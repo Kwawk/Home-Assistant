@@ -163,7 +163,7 @@ switch:
         turn_on:
           service: media_player.turn_on
           data:
-            entity_id: media_player.tv_du_salon
+            entity_id: media_player.chromecast_1
         turn_off:
           service: media_player.turn_off
           data:
