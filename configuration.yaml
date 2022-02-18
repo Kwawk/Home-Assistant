@@ -107,9 +107,9 @@ zone:
     longitude: 2.321988
     radius: 100
     icon: 'mdi:worker'
-  - name: Netatmo
-    latitude: 48.8298143
-    longitude: 2.2395161
+  - name: Shadow
+    latitude: 48.8648465
+    longitude: 2.3501693
     radius: 100
     icon: 'mdi:worker'
   - name: 'EPITA'
