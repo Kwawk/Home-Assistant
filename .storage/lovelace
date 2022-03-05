@@ -1,4 +1,7 @@
 {
+    "version": 1,
+    "minor_version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
             "frontend": {
@@ -11,20 +14,6 @@
                     }
                 }
             },
-            "resources": [
-                {
-                    "type": "js",
-                    "url": "/local/light-entity-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/mini-media-player/mini-media-player-bundle.js"
-                },
-                {
-                    "type": "js",
-                    "url": "/community_plugin/vertical-stack-in-card/vertical-stack-in-card.js"
-                }
-            ],
             "styles": {
                 "divider": {
                     "background": "#62717b",
@@ -70,7 +59,7 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "switch.056042563c71bf28403e"
+                                            "entity": "switch.kitchen_ventilation"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -80,13 +69,13 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "switch.78638353ecfabc96c763"
-                                        },
-                                        {
                                             "entity": "switch.lg_tv"
                                         },
                                         {
                                             "entity": "light.tv_ledstrip"
+                                        },
+                                        {
+                                            "entity": "switch.cloud_lamp"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -208,22 +197,10 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "binary_sensor.door_1"
+                                            "entity": "binary_sensor.entrance_door_sensor"
                                         },
                                         {
-                                            "entity": "binary_sensor.door_2"
-                                        },
-                                        {
-                                            "style": {
-                                                "background": "#62717b",
-                                                "height": "1px",
-                                                "margin": "auto",
-                                                "width": "80%"
-                                            },
-                                            "type": "divider"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.water_1"
+                                            "entity": "binary_sensor.window_door_sensor"
                                         },
                                         {
                                             "style": {
@@ -235,10 +212,22 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "binary_sensor.lightlevel_1"
+                                            "entity": "binary_sensor.water_sensor"
                                         },
                                         {
-                                            "entity": "binary_sensor.door_3"
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.bathroom_motion_sensor"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.washing_machine_door_sensor"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -282,7 +271,7 @@
                                     "cards": [
                                         {
                                             "effects_list": false,
-                                            "entity": "light.desk_leds",
+                                            "entity": "light.tv_ledstrip",
                                             "full_width_sliders": true,
                                             "group": true,
                                             "header": "Ruban de leds",
@@ -308,6 +297,34 @@
                                     "show_header_toggle": false,
                                     "title": "Scripts",
                                     "type": "entities"
+                                },
+                                {
+                                    "shorten_cards": false,
+                                    "consolidate_entities": false,
+                                    "child_card": false,
+                                    "hide_header": false,
+                                    "header": "Ruban de leds",
+                                    "color_wheel": true,
+                                    "persist_features": false,
+                                    "brightness": true,
+                                    "color_temp": true,
+                                    "white_value": true,
+                                    "color_picker": true,
+                                    "smooth_color_wheel": false,
+                                    "speed": true,
+                                    "intensity": true,
+                                    "force_features": false,
+                                    "show_slider_percent": false,
+                                    "full_width_sliders": false,
+                                    "brightness_icon": "weather-sunny",
+                                    "white_icon": "file-word-box",
+                                    "temperature_icon": "thermometer",
+                                    "speed_icon": "speedometer",
+                                    "intensity_icon": "transit-connection-horizontal",
+                                    "group": false,
+                                    "entity": "light.tv_ledstrip",
+                                    "type": "custom:light-entity-card",
+                                    "effects_list": false
                                 }
                             ],
                             "type": "vertical-stack"
@@ -343,10 +360,7 @@
                                     "type": "divider"
                                 },
                                 {
-                                    "entity": "switch.78638353ecfabc96c763"
-                                },
-                                {
-                                    "entity": "switch.redfire"
+                                    "entity": "switch.cloud_lamp"
                                 },
                                 {
                                     "entity": "switch.lg_tv",
@@ -384,7 +398,7 @@
                                     "type": "divider"
                                 },
                                 {
-                                    "entity": "binary_sensor.door_2"
+                                    "entity": "binary_sensor.window_door_sensor"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -397,7 +411,7 @@
                                     "entity": "light.desk_leds"
                                 },
                                 {
-                                    "entity": "switch.78638353ecfabc9b4420"
+                                    "entity": "switch.desk_lamp"
                                 }
                             ],
                             "show_header_toggle": true,
@@ -427,7 +441,7 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "binary_sensor.door_1"
+                                            "entity": "binary_sensor.entrance_door_sensor"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -457,7 +471,7 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "switch.056042563c71bf28403e"
+                                            "entity": "switch.kitchen_ventilation"
                                         },
                                         {
                                             "style": {
@@ -469,7 +483,7 @@
                                             "type": "divider"
                                         },
                                         {
-                                            "entity": "binary_sensor.water_1"
+                                            "entity": "binary_sensor.water_sensor"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -503,11 +517,11 @@
                                     "type": "divider"
                                 },
                                 {
-                                    "entity": "binary_sensor.lightlevel_1",
+                                    "entity": "binary_sensor.bathroom_motion_sensor",
                                     "name": "Pr\u00e9sence"
                                 },
                                 {
-                                    "entity": "binary_sensor.door_3"
+                                    "entity": "binary_sensor.washing_machine_door_sensor"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -677,9 +691,6 @@
                                         },
                                         {
                                             "entity": "automation.home_off_on_switch_click"
-                                        },
-                                        {
-                                            "entity": "automation.redfire_off_on_switch_double_click"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -834,22 +845,6 @@
                             "type": "picture-glance"
                         },
                         {
-                            "entity": "media_player.playstation_4",
-                            "type": "media-control"
-                        },
-                        {
-                            "artwork": "cover",
-                            "entity": "media_player.playstation_4",
-                            "hide": {
-                                "controls": true,
-                                "power": false,
-                                "power_state": false,
-                                "source": true,
-                                "volume": true
-                            },
-                            "type": "custom:mini-media-player"
-                        },
-                        {
                             "entities": [
                                 {
                                     "entity": "sensor.dark_sky_icon_0d"
@@ -890,10 +885,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.78638353ecfabc96c763"
-                                },
-                                {
-                                    "entity": "switch.redfire"
+                                    "entity": "switch.cloud_lamp"
                                 },
                                 {
                                     "entity": "switch.lg_tv"
@@ -909,6 +901,10 @@
                             "show_header_toggle": false,
                             "title": "Media",
                             "type": "entities"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.lg_tv"
                         }
                     ],
                     "title": "WIP"
@@ -930,7 +926,5 @@
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }
