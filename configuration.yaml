@@ -2,11 +2,11 @@
 default_config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
- http:
+http:
   use_x_forwarded_for: true
   trusted_proxies:
-    - 192.168.1.241  # Add the IP address of the proxy server
-#  base_url: example.duckdns.org:8123
+    - 10.42.0.0/16  # IP address of the proxy server (Traefik pod)
+# base_url: example.duckdns.org:8123
 
 #####################################
 ## Includes.                       ##
