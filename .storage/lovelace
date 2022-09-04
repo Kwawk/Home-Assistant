@@ -60,6 +60,9 @@
                                     "entities": [
                                         {
                                             "entity": "switch.kitchen_ventilation"
+                                        },
+                                        {
+                                            "entity": "sensor.netatmo_weather_outdoor_temperature"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -67,59 +70,55 @@
                                     "type": "entities"
                                 },
                                 {
-                                    "entities": [
+                                    "cards": [
                                         {
-                                            "entity": "switch.lg_tv"
+                                            "entities": [
+                                                {
+                                                    "entity": "switch.lg_tv"
+                                                }
+                                            ],
+                                            "show_header_toggle": false,
+                                            "title": "Media",
+                                            "type": "entities"
                                         },
                                         {
-                                            "entity": "light.tv_ledstrip"
+                                            "entity": "media_player.lg_tv",
+                                            "hide": {
+                                                "controls": true,
+                                                "power": true,
+                                                "power_state": false,
+                                                "source": false,
+                                                "volume": false
+                                            },
+                                            "icon": "none",
+                                            "name": "Volume",
+                                            "type": "custom:mini-media-player",
+                                            "artwork": "none",
+                                            "volume_stateless": true
                                         },
                                         {
-                                            "entity": "switch.cloud_lamp"
+                                            "style": {
+                                                "background": "#62717b",
+                                                "height": "1px",
+                                                "margin": "auto",
+                                                "width": "80%"
+                                            },
+                                            "type": "divider"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "light.tv_ledstrip"
+                                                },
+                                                {
+                                                    "entity": "switch.cloud_lamp"
+                                                }
+                                            ],
+                                            "show_header_toggle": false,
+                                            "type": "entities"
                                         }
                                     ],
-                                    "show_header_toggle": false,
-                                    "title": "Media",
-                                    "type": "entities"
-                                },
-                                {
-                                    "artwork": "none",
-                                    "entity": "media_player.lg_tv",
-                                    "hide": {
-                                        "controls": true,
-                                        "power": true,
-                                        "power_state": false,
-                                        "source": false,
-                                        "volume": false
-                                    },
-                                    "icon": "mdi:television-classic",
-                                    "name": "LG TV",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "artwork": "cover",
-                                    "entity": "media_player.playstation_4",
-                                    "hide": {
-                                        "controls": true,
-                                        "power": false,
-                                        "power_state": false,
-                                        "source": true,
-                                        "volume": true
-                                    },
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "artwork": "cover",
-                                    "entity": "media_player.spotify_fr_bertet",
-                                    "hide": {
-                                        "power": true,
-                                        "power_state": false,
-                                        "source": false,
-                                        "volume": false
-                                    },
-                                    "icon": "mdi:music",
-                                    "name": "Spotify",
-                                    "type": "custom:mini-media-player"
+                                    "type": "custom:vertical-stack-in-card"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -268,37 +267,6 @@
                                     "type": "custom:vertical-stack-in-card"
                                 },
                                 {
-                                    "cards": [
-                                        {
-                                            "effects_list": false,
-                                            "entity": "light.tv_ledstrip",
-                                            "full_width_sliders": true,
-                                            "group": true,
-                                            "header": "Ruban de leds",
-                                            "persist_features": true,
-                                            "show_slider_percent": true,
-                                            "type": "custom:light-entity-card",
-                                            "white_value": false
-                                        },
-                                        {
-                                            "entities": [],
-                                            "show_header_toggle": false,
-                                            "type": "entities"
-                                        }
-                                    ],
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "script.home_off"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "title": "Scripts",
-                                    "type": "entities"
-                                },
-                                {
                                     "shorten_cards": false,
                                     "consolidate_entities": false,
                                     "child_card": false,
@@ -314,8 +282,8 @@
                                     "speed": true,
                                     "intensity": true,
                                     "force_features": false,
-                                    "show_slider_percent": false,
-                                    "full_width_sliders": false,
+                                    "show_slider_percent": true,
+                                    "full_width_sliders": true,
                                     "brightness_icon": "weather-sunny",
                                     "white_icon": "file-word-box",
                                     "temperature_icon": "thermometer",
@@ -325,6 +293,16 @@
                                     "entity": "light.tv_ledstrip",
                                     "type": "custom:light-entity-card",
                                     "effects_list": false
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "script.home_off"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Scripts",
+                                    "type": "entities"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -484,6 +462,9 @@
                                         },
                                         {
                                             "entity": "binary_sensor.water_sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.netatmo_weather_outdoor_temperature"
                                         }
                                     ],
                                     "show_header_toggle": false,
@@ -820,7 +801,8 @@
                             },
                             "icon": "mdi:television-classic",
                             "name": "LG TV",
-                            "type": "custom:mini-media-player"
+                            "type": "custom:mini-media-player",
+                            "volume_stateless": true
                         },
                         {
                             "artwork": "none",
@@ -905,6 +887,23 @@
                         {
                             "type": "media-control",
                             "entity": "media_player.lg_tv"
+                        },
+                        {
+                            "entity": "media_player.lg_tv",
+                            "hide": {
+                                "controls": true,
+                                "power": true,
+                                "power_state": false,
+                                "source": false,
+                                "volume": false
+                            },
+                            "icon": "mdi:television-classic",
+                            "name": "LG TV",
+                            "type": "custom:mini-media-player",
+                            "artwork": "none",
+                            "volume_stateless": false,
+                            "group": true,
+                            "scale": "1"
                         }
                     ],
                     "title": "WIP"
